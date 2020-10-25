@@ -1,8 +1,10 @@
 /****    Navbar   ****/
+
 .navbar {
   font-size: 5rem;
   font-family: "Lato", sans-serif;
   font-weight: 400;
+  background-color: var(--color-secondary);
 }
 .navitems {
   margin-left: 5rem;
@@ -46,4 +48,41 @@
 .btn-login {
   color: var(--color-primary);
   border: 2px solid var(--color-primary);
+}
+
+/****    Header   ****/
+
+.header {
+  background-color: var(--color-secondary);
+  height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+.hero-img {
+  width: 130%;
+}
+.img {
+  margin-right: 10rem;
+}
+.header h2 {
+  margin-left: 4rem;
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  word-spacing: 10px;
+}
+.header button {
+  margin-top: 1rem;
+  margin-left: 4rem;
+  padding: 0.5rem 0.8rem;
+  background-color: var(--color-primary);
+  box-shadow: inset 0 0 0 0 #fff;
+  color: white;
+  border: 2px solid transparent;
+  transition: ease-out 0.4s;
+}
+.header button:hover {
+  box-shadow: inset 7rem 0 0 0 #fff;
+  color: var(--color-primary);
 }
