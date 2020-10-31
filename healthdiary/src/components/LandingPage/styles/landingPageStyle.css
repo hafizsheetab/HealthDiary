@@ -59,18 +59,21 @@
   justify-content: center;
   align-items: center;
   overflow: hidden;
+  width: 100%;
 }
 .hero-img {
-  width: 130%;
+  width: 100%;
 }
 .img {
-  margin-right: 10rem;
+  width: 150%;
+  overflow: hidden;
 }
 .header h2 {
   margin-left: 4rem;
   font-family: "Lato", sans-serif;
   font-weight: 400;
   word-spacing: 10px;
+  width: 120%;
 }
 .header button {
   margin-top: 1rem;
@@ -85,4 +88,30 @@
 .header button:hover {
   box-shadow: inset 7rem 0 0 0 #fff;
   color: var(--color-primary);
+}
+
+/***** Section - features *****/
+
+.section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1140px;
+  height: 80vh;
+  margin: auto;
+  margin-top: 12px solid red;
+}
+.section-info p {
+  font-size: 1.2rem;
+  font-family: "Lato", sans-serif;
+  word-spacing: 5px;
+  margin-top: 1rem;
+}
+.section-img {
+  flex-basis: 90%;
+  margin-right: 3rem;
+}
+
+.img-svg {
+  width: 90%;
 }

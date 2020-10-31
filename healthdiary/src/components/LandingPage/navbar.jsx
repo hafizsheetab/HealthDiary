@@ -9,7 +9,7 @@ function Navbar() {
             <NavBar.Brand href="#home">HealthDiary</NavBar.Brand>
             <Nav className="navitems">
                 <Nav.Link className="navitem" href="">Home</Nav.Link>
-                <Nav.Link className="navitem" href="">Find a doctor</Nav.Link>
+                <Nav.Link className="navitem" href="">Community</Nav.Link>
                 <Nav.Link className="navitem" href="">Blog</Nav.Link>
                 <Nav.Link className="navitem" href="">Self test</Nav.Link>
             </Nav>
