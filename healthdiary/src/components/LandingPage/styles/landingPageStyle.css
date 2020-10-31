@@ -96,22 +96,27 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  max-width: 1140px;
+  padding: 0 8rem;
   height: 80vh;
-  margin: auto;
-  margin-top: 12px solid red;
 }
 .section-info p {
   font-size: 1.2rem;
   font-family: "Lato", sans-serif;
-  word-spacing: 5px;
+  word-spacing: 3px;
   margin-top: 1rem;
 }
 .section-img {
   flex-basis: 90%;
-  margin-right: 3rem;
+  margin-right: 4rem;
 }
-
+.section-rev {
+  flex-direction: row-reverse;
+  background-color: #eee;
+}
+.section-rev .section-img {
+  margin-right: 0;
+  margin-left: 10rem;
+}
 .img-svg {
   width: 90%;
 }
