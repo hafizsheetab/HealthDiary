@@ -4,8 +4,6 @@ import notification from '../../resources/imgaes/notification.svg'
 import blog from '../../resources/imgaes/blog.svg'
 import community from '../../resources/imgaes/groupChat.svg'
 
-
-
 export const doctorListInfo = {
     heading: "Find a doctor",
     paragraph: "Get help from top class doctors of reputated hostpitals and health organization according to your need",
@@ -23,11 +21,11 @@ export const getNotify = {
 }
 export const blogs = {
     heading: "A vast collection of blogs",
-    paragraph:"Read blogs and articles on various health related topics written by doctors and certified health consultant",
+    paragraph:"Read blogs and articles on various health related topics written by doctors and certified health consultants",
     image:blog
 }
 export const communityForum = {
     heading: "A Friendly Community",
-    paragraph: "Get answer of all your queries through our friendly and supportive community forum",
+    paragraph: "Get answers of all your queries through our friendly and supportive community forum",
     image:community
 }
