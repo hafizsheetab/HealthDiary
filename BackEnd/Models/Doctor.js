@@ -20,7 +20,7 @@ const DoctorSchema = new mongoose.Schema({
                 required: true
             },
             passingDate: {
-                type: Date,
+                type: String,
                 required: true
             }
         }

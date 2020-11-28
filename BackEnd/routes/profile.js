@@ -95,15 +95,23 @@ router.get('/doctor', async(req,res) => {
  
  })
  router.post('/doctor/create',async (req,res) =>{
-     let {user,hospital,department, qualifications} = req.body
-     let doctor = new Doctor({
-         user,
-         hospital,
-         department,
-         qualifications
-     })
-     await doctor.save()
-     res.send("Success")
+     try{
+        let {user,hospital,department, qualifications} = req.body
+        let doctor = new Doctor({
+            user,
+            hospital,
+            department,
+            qualifications
+        })
+        await doctor.save()
+        res.send("Success")
+
+     }
+     catch(err){
+         if(err){
+             console.log(err.message)
+         }
+     }
      
      
  
