@@ -1,9 +1,12 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Navbar from './components/LandingPage/Navbar/navbar.jsx';
+import LandingPage from './components/LandingPage/landingPage';
+
 function App() {
   return (
-    <Navbar/>
+    <>
+      <LandingPage />
+    </>
   );
 }
 

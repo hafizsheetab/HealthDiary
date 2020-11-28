@@ -9,9 +9,9 @@ function Navbar() {
             <NavBar.Brand href="#home">HealthDiary</NavBar.Brand>
             <Nav className="navitems">
                 <Nav.Link className="navitem" href="">Home</Nav.Link>
-                <Nav.Link className="navitem" href="">Features</Nav.Link>
-                <Nav.Link className="navitem" href="">About</Nav.Link>
-                <Nav.Link className="navitem" href="">Contact us</Nav.Link>
+                <Nav.Link className="navitem" href="">Community</Nav.Link>
+                <Nav.Link className="navitem" href="">Blog</Nav.Link>
+                <Nav.Link className="navitem" href="">Self test</Nav.Link>
             </Nav>
         
            <button className="button btn-login">Login</button>
