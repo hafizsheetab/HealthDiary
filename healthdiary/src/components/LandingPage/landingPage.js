@@ -1,9 +1,9 @@
-import React from 'react'
-import Navbar from './navbar'
-import Header from './header.jsx';
-import Section from './section.jsx';
-import { doctorListInfo,videoChat,getNotify,blogs,communityForum } from './contant';
+import React from 'react';
+import { blogs, communityForum, doctorListInfo, getNotify, videoChat } from './contant';
 import Footer from './footer.jsx';
+import Header from './header.jsx';
+import Navbar from './navbar';
+import Section from './section.jsx';
 
 function LandingPage() {
     return (
@@ -14,8 +14,9 @@ function LandingPage() {
           <Section {...videoChat} varient='secondary'/>
           <Section {...getNotify} varient='primary'/>
           <Section {...blogs} varient='secondary'/>
-          <Section {...communityForum} varient='primary' />
+          <Section {...communityForum} varient='primary'/>
           <Footer />
+          
         </>
     )
 }

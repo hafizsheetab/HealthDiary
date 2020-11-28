@@ -80,14 +80,12 @@
   margin-left: 4rem;
   padding: 0.5rem 0.8rem;
   background-color: var(--color-primary);
-  box-shadow: inset 0 0 0 0 #fff;
   color: white;
   border: 2px solid transparent;
   transition: ease-out 0.4s;
 }
 .header button:hover {
-  box-shadow: inset 8rem 0 0 0 #fff;
-  color: var(--color-primary);
+  transform: scale(1.1);
 }
 
 /***** Section - features *****/
@@ -164,4 +162,41 @@
 }
 .footer-text span {
   color: var(--color-primary);
+}
+
+/** tabs **/
+.tab__container {
+  margin: 2rem;
+}
+.tab__list {
+  font-family: "Lato";
+  font-size: 1.5rem;
+  display: flex;
+  justify-content: center;
+  border-bottom: 2px solid var(--color-primary);
+}
+.tab__list > * {
+  margin: 0 2rem;
+}
+.tab__items {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 1rem;
+}
+.tab__img {
+  height: 400px;
+  width: 400px;
+  margin: 0 5rem;
+}
+.tab__paragraph {
+  font-size: 1.5rem;
+  word-spacing: 5px;
+}
+.tab__heading {
+  text-align: center;
+  margin: 1rem;
+  font-family: "Lato", sans-serif;
+  font-weight: bold;
+  word-spacing: 5px;
 }

@@ -1,11 +1,12 @@
-import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import LandingPage from './components/LandingPage/landingPage';
+import React from 'react';
+import HowItWorks from './components/LandingPage/howItWorks.jsx';
 
 function App() {
   return (
     <>
-      <LandingPage />
+      {/* <LandingPage /> */}
+      <HowItWorks />
     </>
   );
 }
