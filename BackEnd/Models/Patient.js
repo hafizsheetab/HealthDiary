@@ -8,9 +8,11 @@ const PatientSchema = new mongoose.Schema({
     consultationHistory: [
         {
             doctor: {
-                type: mongoose.Schema.Types.ObjectId,
-                ref: 'Doctor',
+                type: String,
                 required: true
+                // type: mongoose.Schema.Types.ObjectId,
+                // ref: 'Doctor',
+                // required: true
             },
             diagnosis:{
                 type: String,

@@ -11,7 +11,7 @@ router.post('/',[
     check('name','Give a valid name').not().isEmpty(),
     check('email','Give Valid email').isEmail(),
     check('password','Give more than 6 characters').isLength(6),
-    check('type','select Type').not().isEmpty()
+    check('usertype','select Type').not().isEmpty()
 ],async (req,res) => {
   
    try{
@@ -19,7 +19,7 @@ router.post('/',[
         if(!errors.isEmpty()){
             return res.status(400).json({errors:errors.array()})
         }
-        let {name, email, password, type} = req.body
+        let {name, email, password, usertype} = req.body
         let user = await User.findOne({email})
         if(user){
             return res.status(400).json({errors:{message: 'Already Registered'}})
@@ -36,7 +36,7 @@ router.post('/',[
             name,
             email,
             password,
-            type,
+            usertype,
             gravatar
         })
         await user.save()

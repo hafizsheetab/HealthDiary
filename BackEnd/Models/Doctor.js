@@ -9,11 +9,11 @@ const DoctorSchema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Hospital'
     },
-    Department:{
+    department:{
         type: String,
         required: true
     },
-    Qualifications: [
+    qualifications: [
         {
             name: {
                 type: String,
