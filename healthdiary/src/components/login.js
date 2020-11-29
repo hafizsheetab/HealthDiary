@@ -15,7 +15,7 @@ function Login() {
            <img src={loginImg} alt='Log in' className='auth__img'/>
            
            <div className='form__container'>
-               <h2 className='form__heading'>Good to see you</h2>
+               <h2 className='form__heading'>Good to have you back</h2>
                <form className='form__content' method="POST">
                     {auth_content.map(con =>
                      (
