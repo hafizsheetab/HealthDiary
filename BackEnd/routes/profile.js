@@ -3,18 +3,13 @@ const router = express.Router()
 const Doctor = require('../Models/Doctor')
 const Patient = require('../Models/Patient')
 const Hospital = require('../Models/Hospital')
-const auth = require('../Middleware/auth')
-const mongoose = require('mongoose')
-const User = mongoose.model('User')
-const jwt = require('jsonwebtoken')
-const config = require('config')
+const {check, validationResult} = require('express-validator')
+
 
 
 router.get('/patient', async(req,res) => {
    try{
     let user = req.body.user
-    // console.log(req.body)
-    // console.log(user._id)
     let patient = await Patient.findOne({'user' : `${user._id}`})
     if(!patient){
         return res.status(400).json({msg : 'ProfileNotFound'})
@@ -25,6 +20,7 @@ router.get('/patient', async(req,res) => {
    }
    catch(err){
        console.log(err.message)
+       res.status(400).json({err : err.message})
    }
 
 })
@@ -55,6 +51,7 @@ router.get('/patient/hospitals',async(req,res) =>{
     }
     catch(err){
         console.log(err.message)
+        res.status(400).json({err : err.message})
         
     }
 })
@@ -73,6 +70,7 @@ router.get('/patient/hospitals/doctors',  async(req,res) =>{
     }
     catch(err){
         console.log(err.message)
+        res.status(400).json({err : err.message})
     }
 })
 
@@ -91,6 +89,7 @@ router.get('/doctor', async(req,res) => {
     }
     catch(err){
         console.log(err.message)
+        res.status(400).json({err : err.message})
     }
  
  })
@@ -110,6 +109,7 @@ router.get('/doctor', async(req,res) => {
      catch(err){
          if(err){
              console.log(err.message)
+             res.status(400).json({err : err.message})
          }
      }
      
@@ -133,14 +133,20 @@ router.get('/doctor', async(req,res) => {
  
  })
  router.post('/hospital/create',async (req,res) =>{
-     let {user,address} = req.body
-     let hospital = new Hospital({
-         user,
-         address
-     })
-     await hospital.save()
-     res.send("Success")
-     
+     try{
+        let {user,address} = req.body
+        let hospital = new Hospital({
+            user,
+            address
+        })
+        await hospital.save()
+        res.send("Success")
+        
+     }
+     catch(err){
+         console.log(err.message)
+         res.status(400).json({err : err.message})
+     }
      
  
  })

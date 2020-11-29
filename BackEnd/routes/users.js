@@ -19,7 +19,10 @@ router.post('/',[
         if(!errors.isEmpty()){
             return res.status(400).json({errors:errors.array()})
         }
-        let {name, email, password, usertype} = req.body
+        let {name, email, password,password2, usertype} = req.body
+        if(!password.equals(password2)){
+            return res.status(400).json({msg: 'Passwords do not match'})
+        }
         let user = await User.findOne({email})
         if(user){
             return res.status(400).json({errors:{message: 'Already Registered'}})

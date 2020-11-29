@@ -8,6 +8,9 @@ router.get('/doctor',async(req,res) => {
     let {doctor} = req.body
     try{
         await Appointment.find({'doctor':`${doctor._id}`},(err, appointments) => {
+            if(err){
+                console.log(err.message)
+            }
             res.send(appointments)
         })
     }
@@ -21,6 +24,9 @@ router.get('/patient',async(req,res) => {
     let {patient} = req.body
     try{
         await Appointment.find({'patient':`${patient._id}`},(err, appointments) => {
+            if(err){
+                console.log(err.message)
+            }
             res.send(appointments)
         })
     }
