@@ -20,7 +20,8 @@
   margin-top: -2px;
   border-bottom: 2px solid var(--color-primary);
 }
-/* Button Styling */
+
+/**  Button Styling  **/
 .btn-signup,
 .btn-login {
   border-radius: 2rem;
@@ -39,6 +40,10 @@
   outline-color: rgba(255, 255, 255, 0);
   outline-offset: 15px;
   text-shadow: 1px 1px 2px #427388;
+}
+.btn-signup:focus,
+.btn-login:focus {
+  outline: none;
 }
 .btn-signup {
   background-color: var(--color-primary);
@@ -75,7 +80,8 @@
   word-spacing: 10px;
   width: 120%;
 }
-.header button {
+.header__button {
+  text-decoration: none;
   margin-top: 1rem;
   margin-left: 4rem;
   padding: 0.5rem 0.8rem;
@@ -84,7 +90,10 @@
   border: 2px solid transparent;
   transition: ease-out 0.4s;
 }
-.header button:hover {
+.header__button:focus {
+  outline: none;
+}
+.header__button:hover {
   transform: scale(1.1);
 }
 
@@ -109,7 +118,7 @@
 }
 .section-rev {
   flex-direction: row-reverse;
-  background-color: #eee;
+  background-color: var(--color-secondary-dark);
 }
 .section-rev .section-img {
   margin-right: 0;
