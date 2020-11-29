@@ -1,8 +1,14 @@
-import docList from '../../resources/imgaes/doctorsList.svg'
-import videoCon from '../../resources/imgaes/videoCall.svg'
-import notification from '../../resources/imgaes/notification.svg'
 import blog from '../../resources/imgaes/blog.svg'
+import time from '../../resources/imgaes/calendar.svg'
+import message from '../../resources/imgaes/chat.svg'
+import docList from '../../resources/imgaes/doctorsList.svg'
 import community from '../../resources/imgaes/groupChat.svg'
+import meet from '../../resources/imgaes/med_doctors.svg'
+import notification from '../../resources/imgaes/notification.svg'
+import search from '../../resources/imgaes/people_search.svg'
+import videoCon from '../../resources/imgaes/videoCall.svg'
+
+// Section Content
 
 export const doctorListInfo = {
     heading: "Find a doctor",
@@ -29,3 +35,25 @@ export const communityForum = {
     paragraph: "Get answers of all your queries through our friendly and supportive community forum",
     image:community
 }
+
+// Tab Content
+
+export const tab_content = [
+    {
+        heading: 'There is a list of doctors who are specialized in different health sectors working in top hospitals and health institution.You can easily find doctors as per your need.',
+        image: search
+    },
+    {
+        heading: 'You can sent message to the doctor with whom you want to fix an appointment or for any other query',
+        image: message
+    },
+    {
+        heading: 'You can fix an appointment with doctor.Time and date can be determine via communication.',
+        image: time
+    },
+    {
+        heading: 'At the day of your appointment a meeting link will be sent to you for a videochat with doctor.You can then discuss your problem with doctor',
+        image: meet
+    }
+
+]

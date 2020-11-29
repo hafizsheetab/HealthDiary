@@ -1,14 +1,14 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import './styles/landingPageStyle.css';
 
-import './styles/landingPageStyle.css'
 
 class Section extends Component {
     render() {
         const { heading, paragraph, image,varient } = this.props;
-        let sectionClass = varient === 'primary' ? 'section' : 'section section-rev'
+        let sectionClass = varient === 'primary' ? 'section' : 'section section-rev'     
         
         return (
-            <div >
+            <div>
               <div className={sectionClass}>
                 <div className='section-img'>
                   <img src={image} alt="doctorsList" className="img-svg"></img> 
