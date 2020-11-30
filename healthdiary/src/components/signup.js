@@ -29,7 +29,18 @@ function Signup() {
                         </div>
                       </div>
                      )
-                    )}    
+                    )}
+                    <div className='form__div'>
+                     <div className = 'form__div-icon'>{<AiOutlineUser/>}</div>
+                     <div className='form__div-input'>
+                         <label className = 'form__label'>Type</label>
+                         <select className='form__input'>
+                            <option value = 'Patient'>Patient</option>
+                            <option value = 'Doctor'>Doctor</option>
+                            <option value = 'Hospital'>Hospital</option>
+                         </select>
+                     </div>
+                    </div>    
                </form>
                <button className='auth__button'>Create Account</button>
            </div>
