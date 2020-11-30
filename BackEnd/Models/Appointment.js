@@ -10,7 +10,7 @@
          ref: 'Patient'
      },
      time: {
-        type: TimeRanges,
+        type: String,
         required: true
      }
  })
