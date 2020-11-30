@@ -6,10 +6,10 @@ import '../styles/authentication.css';
 
 function Signup() {
     const auth_content = [
-        {a_icon:<AiOutlineUser/>,a_label:'Username',a_input:'text'},
-        {a_icon:<AiOutlineMail/>,a_label:'Email',a_input:'email'},
-        {a_icon:<AiOutlineLock/>,a_label:'Password',a_input:'password'},
-        {a_icon:<AiOutlineCheck/>,a_label:'Confirm Password',a_input:'password'}
+        {a_icon:<AiOutlineUser/>,a_name:'username',a_label:'Username',a_input:'text'},
+        {a_icon:<AiOutlineMail/>,a_name:'email',a_label:'Email',a_input:'email'},
+        {a_icon:<AiOutlineLock/>,a_name:'password',a_label:'Password',a_input:'password'},
+        {a_icon:<AiOutlineCheck/>,a_name:'confirmPassword',a_label:'Confirm Password',a_input:'password'}
     ]
     return (
         <>
@@ -24,8 +24,8 @@ function Signup() {
                       <div className='form__div'>
                         <div className='form__div-icon'>{con.a_icon}</div>
                         <div className='form__div-input'>
-                        <label className='form__label'>{con.a_label}</label>
-                        <input type={con.a_input} className='form__input' />
+                        <label htmlFor={con.a_name} className='form__label'>{con.a_label}</label>
+                        <input name={con.a_name} type={con.a_input} className='form__input' />
                         </div>
                       </div>
                      )
