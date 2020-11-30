@@ -3,12 +3,16 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import HowItWorks from './components/LandingPage/howItWorks.jsx';
 import LandingPage from './components/LandingPage/landingPage';
+
 import Login from './components/login';
 import Signup from './components/signup';
+
+
 
 function App() {
   return (
     <>
+
     <Router>
       <Switch>
         <Route path="/signup" component={Signup} />
@@ -17,7 +21,6 @@ function App() {
         <Route exact path="/" component={LandingPage} />
       </Switch>
     </Router>
-      
     </>
   );
 }
