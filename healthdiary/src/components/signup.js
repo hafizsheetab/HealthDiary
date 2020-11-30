@@ -1,12 +1,12 @@
 import React from 'react';
-import { AiOutlineCheck, AiOutlineLock, AiOutlineMail, AiOutlineUser } from "react-icons/ai";
+import { AiOutlineCheck, AiOutlineLock, AiOutlineMail, AiOutlineUser, AiOutlineUsergroupAdd } from "react-icons/ai";
 import signUpImg from '../resources/imgaes/signup.svg';
 import '../styles/authentication.css';
 
 
 function Signup() {
     const auth_content = [
-        {a_icon:<AiOutlineUser/>,a_name:'username',a_label:'Username',a_input:'text'},
+        {a_icon:<AiOutlineUser/>,a_name:'fullname',a_label:'Fullname',a_input:'text'},
         {a_icon:<AiOutlineMail/>,a_name:'email',a_label:'Email',a_input:'email'},
         {a_icon:<AiOutlineLock/>,a_name:'password',a_label:'Password',a_input:'password'},
         {a_icon:<AiOutlineCheck/>,a_name:'confirmPassword',a_label:'Confirm Password',a_input:'password'}
@@ -31,7 +31,7 @@ function Signup() {
                      )
                     )}
                     <div className='form__div'>
-                     <div className = 'form__div-icon'>{<AiOutlineUser/>}</div>
+                     <div className = 'form__div-icon'>{<AiOutlineUsergroupAdd/>}</div>
                      <div className='form__div-input'>
                          <label className = 'form__label'>Type</label>
                          <select className='form__input'>
