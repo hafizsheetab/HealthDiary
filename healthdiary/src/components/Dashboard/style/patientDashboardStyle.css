@@ -1,0 +1,111 @@
+.home {
+  /* background-color: skyblue; */
+  /* height: auto;
+  width: auto; */
+  margin-right: 1rem;
+  display: grid;
+  grid-template-columns: auto auto auto;
+  /* align-items: stretch; */
+  grid-gap: 3rem;
+}
+
+h4 {
+  margin-bottom: 2rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--color-primary-light);
+  width: 98%;
+}
+
+.dashboard {
+  margin-top: 1rem;
+  margin-left: 14rem;
+}
+
+.form__group {
+  position: relative;
+  padding: 15px 0 0;
+  margin-top: 10px;
+  /* width: 40%; */
+}
+
+.form__field {
+  font-family: inherit;
+  width: 100%;
+  border: 0;
+  border-bottom: 2px solid #9b9b9b;
+  outline: 0;
+  font-size: 1rem;
+  color: rgba(0, 0, 0, 0.623);
+  padding: 7px 0;
+  background: transparent;
+  transition: border-color 0.2s;
+}
+.form__field::placeholder {
+  color: transparent;
+}
+.form__field:placeholder-shown ~ .form__label {
+  font-size: 1rem;
+  cursor: text;
+  top: 20px;
+}
+
+.form__label {
+  position: absolute;
+  top: -0.7rem;
+  display: block;
+  transition: 0.2s;
+  font-size: 0.7rem;
+  color: var(--color-primary);
+}
+
+.form__field:focus {
+  padding-bottom: 6px;
+  font-weight: 400;
+  border-width: 3px;
+  border-image: linear-gradient(
+    90deg,
+    rgba(2, 0, 36, 1) 0%,
+    rgba(96, 138, 212, 1) 35%,
+    rgba(0, 212, 255, 1) 100%
+  );
+  border-image-slice: 1;
+}
+.form__field:focus ~ .form__label {
+  position: absolute;
+  top: -0.5rem;
+  display: block;
+  transition: 0.2s;
+  font-size: 1rem;
+  color: var(--color-primary);
+  font-weight: 700;
+}
+
+/* reset input */
+.form__field:required,
+.form__field:invalid {
+  box-shadow: none;
+}
+
+.radio_data {
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+  color: var(--color-primary);
+}
+.radio_btn {
+  margin: 0 0.5rem;
+  font-size: 1.1rem;
+}
+.radio_btn_first {
+  margin-left: 0rem;
+}
+
+.dashboard_button {
+  color: #fff;
+  background-color: var(--color-primary);
+  margin-top: 2rem;
+  font-size: 1rem;
+  position: absolute;
+  bottom: 1.2rem;
+  right: 0.5rem;
+  border: 1px sole var(--color-primary);
+}
