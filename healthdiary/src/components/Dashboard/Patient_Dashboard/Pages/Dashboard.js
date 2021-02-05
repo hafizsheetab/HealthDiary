@@ -12,6 +12,7 @@ function Dashboard() {
   return (
     <div className="dashboard marginOut">
       <h4>Personal Information</h4>
+      <div>
       <form className='home' method="POST">
         {content.map(con =>
         (
@@ -51,7 +52,8 @@ function Dashboard() {
                 <option value="AB_pos">AB-</option>
               </select>
             </div>
-      </form>
+        </form>
+        </div>
       <button className='button dashboard_button' >Save</button>
     </div>
   );

@@ -1,26 +1,4 @@
-.home {
-  /* background-color: skyblue; */
-  /* height: auto;
-  width: auto; */
-  margin-right: 1rem;
-  display: grid;
-  grid-template-columns: auto auto auto;
-  /* align-items: stretch; */
-  grid-gap: 3rem;
-}
-
-h4 {
-  margin-bottom: 2rem;
-  padding-bottom: 0.5rem;
-  border-bottom: 1px solid var(--color-primary-light);
-  width: 98%;
-}
-
-.dashboard {
-  margin-top: 1rem;
-  margin-left: 14rem;
-}
-
+/*** Common Attributes ***/
 .form__group {
   position: relative;
   padding: 15px 0 0;
@@ -86,6 +64,30 @@ h4 {
   box-shadow: none;
 }
 
+/*** Page 1 ****/
+.home {
+  /* background-color: skyblue; */
+  /* height: auto;
+  width: auto; */
+  margin-right: 1rem;
+  display: grid;
+  grid-template-columns: auto auto auto;
+  /* align-items: stretch; */
+  grid-column-gap: 3rem;
+  grid-row-gap: 1rem;
+}
+
+h4 {
+  margin-bottom: 2rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--color-primary-light);
+  width: 98%;
+}
+
+.dashboard {
+  margin-top: 1rem;
+  margin-left: 14rem;
+}
 .radio_data {
   margin-bottom: 0.5rem;
   font-size: 1rem;
@@ -104,6 +106,32 @@ h4 {
   background-color: var(--color-primary);
   margin-top: 2rem;
   font-size: 1rem;
+  position: absolute;
+  bottom: 1.2rem;
+  right: 0.5rem;
+  border: 1px sole var(--color-primary);
+}
+
+/** Page 2 **/
+.doc_visit {
+  background-color: red;
+  height: 15rem;
+  width: auto;
+  margin-right: 1rem;
+  margin-bottom: 1rem;
+}
+h6 {
+  background-color: var(--color-primary-light-extra);
+  padding: 0.5rem 0;
+  padding-left: 0.8rem;
+  margin-right: 1rem;
+}
+.doc_app_btn {
+  color: #fff;
+  background-color: var(--color-primary);
+  margin-top: 2rem;
+  max-width: 10rem;
+  font-size: 0.8rem;
   position: absolute;
   bottom: 1.2rem;
   right: 0.5rem;
