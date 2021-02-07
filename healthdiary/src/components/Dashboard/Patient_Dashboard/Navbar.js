@@ -1,22 +1,32 @@
 import React, { useState } from 'react';
 import { IconContext } from 'react-icons';
-import * as AiIcons from 'react-icons/ai';
-import * as FaIcons from 'react-icons/fa';
+import { AiFillHome } from 'react-icons/ai';
+import { BiLogOut } from 'react-icons/bi';
+import { FaBell } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import '../style/Navbar.css';
 import { SidebarData } from './SidebarData';
 
-function Navbar() {
+function PatientNavbar() {
   const [sidebar, setSidebar] = useState(true);
 
-  const showSidebar = () => setSidebar(!sidebar);
+  // const showSidebar = () => setSidebar(!sidebar);
 
   return (
     <>
       <IconContext.Provider value={{ color: '#fff' }}>
-        <div className='navbar'>
-          <Link to='#' className='menu-bars'>
-            <FaIcons.FaBars onClick={showSidebar} />
+        <div className='navbar'> 
+          <Link to='/' className="nav-items">
+            <p>Find Doctors</p>
+          </Link>
+          <Link to='/' className="nav-items">
+            <AiFillHome/>
+          </Link> 
+          <Link to='/' className="nav-items">
+            <FaBell />
+          </Link>
+          <Link to='/' className="nav-items">
+            <BiLogOut />
           </Link>
         </div>
         
@@ -24,7 +34,6 @@ function Navbar() {
           <ul className='nav-menu-items' /*onClick={showSidebar}*/>
             <li className='navbar-toggle'>
               <Link to='#' className='menu-bars'>
-                <AiIcons.AiOutlineClose />
               </Link>
             </li>
             {SidebarData.map((item, index) => {
@@ -44,4 +53,4 @@ function Navbar() {
   );
 }
 
-export default Navbar;
+export default PatientNavbar;

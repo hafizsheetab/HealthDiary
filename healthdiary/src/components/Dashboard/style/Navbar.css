@@ -2,14 +2,27 @@
   background-color: var(--color-dashboard-primary);
   height: 80px;
   display: flex;
-  justify-content: start;
   align-items: center;
+  justify-content: flex-end;
+  font-size: 1.5rem;
+}
+.nav-items {
+  margin: 0 1rem;
+}
+.nav-items p {
+  font-size: 1.2rem;
+  color: white;
+  font-weight: 400;
+  margin-bottom: -0.2rem;
 }
 
 .menu-bars {
   margin-left: 2rem;
-  font-size: 2rem;
+  font-size: 1.5rem;
   background: none;
+  position: absolute;
+  z-index: 10;
+  font-weight: bold;
 }
 
 .nav-menu {

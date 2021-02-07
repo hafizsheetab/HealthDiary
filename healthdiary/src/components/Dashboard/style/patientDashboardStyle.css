@@ -126,14 +126,87 @@ h6 {
   padding-left: 0.8rem;
   margin-right: 1rem;
 }
+.app_head {
+  background-color: var(--color-primary-light-extra);
+}
 .doc_app_btn {
   color: #fff;
   background-color: var(--color-primary);
-  margin-top: 2rem;
+  display: block;
+  margin-top: 3rem;
+  margin-right: auto;
+  margin-left: auto;
   max-width: 10rem;
   font-size: 0.8rem;
+  border: 1px solid var(--color-primary);
+}
+.doc_table {
+  margin-right: 1rem;
+  margin-top: 1rem;
+}
+/*** Page 4 ***/
+.drug_allergies {
+  margin-left: 14rem;
+}
+.drug_allergies h6 {
+  margin-bottom: 2rem;
+}
+.allergies_btn {
+  width: 4rem;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+}
+
+/*** Page 5 ***/
+
+.pain_heading {
+  margin: 0.6rem 0;
+}
+.pain_img {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.pain_img img {
+  margin-bottom: 3rem;
+}
+/*** Page 6 ***/
+.history_btn {
+  max-width: 5rem;
   position: absolute;
-  bottom: 1.2rem;
-  right: 0.5rem;
-  border: 1px sole var(--color-primary);
+  top: 7rem;
+  right: 7rem;
+}
+.history_head {
+  margin-top: 5rem;
+}
+.history_btn_2 {
+  max-width: 15rem;
+  font-size: 0.7rem;
+}
+/*** Page 7 ***/
+.up_container {
+  margin-top: 6rem;
+  margin-left: 1.5rem;
+}
+.upload_reports {
+  background-color: var(--color-secondary-dark);
+  height: 20rem;
+  width: 60rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.up_text h4 {
+  font-size: 1.7rem;
+  border: none;
+  font-weight: bold;
+  margin-left: 3rem;
+  margin-top: 2rem;
+}
+.up_text p {
+  font-size: 1rem;
+  margin-left: 2rem;
+  margin-top: -1.5rem;
 }
