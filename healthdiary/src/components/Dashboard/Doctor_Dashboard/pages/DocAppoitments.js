@@ -1,11 +1,11 @@
 import React, { useState } from 'react'
 import { Table } from 'react-bootstrap'
-import '../style/doctorDashboardStyle.css'
+import '../../style/doctorDashboardStyle.css'
 
 function DocAppoitments() {
 
      const [state, setState] = useState([])
-
+    
     return (
         <>   
         <div className="doc_table marginOut">

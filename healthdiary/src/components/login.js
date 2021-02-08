@@ -1,14 +1,50 @@
-import React from 'react';
+import axios from 'axios';
+import React, { useState } from 'react';
 import { AiOutlineLock, AiOutlineMail } from "react-icons/ai";
 import loginImg from '../resources/imgaes/login.svg';
 import '../styles/authentication.css';
+import { getToken, getUser, setToken, setUser } from './Utility/localStorageAPI';
 
 
-function Login() {
-    const auth_content = [
-        {a_icon:<AiOutlineMail/>,a_name:'email',a_label:'Email',a_input:'email'},
-        {a_icon:<AiOutlineLock/>,a_name:'password',a_label:'Password',a_input:'password'}
-    ]
+function Login({history}) {
+    const [loginForm, setLoginForm] = useState({
+        email: '',
+        password:''
+    })
+   
+    const handleChange = (e) => {
+        setLoginForm({...loginForm,[e.target.name]:e.target.value})
+    }
+    const handleFormSumbit = (e) => {
+      e.preventDefault();
+      axios.post('https://hidden-wildwood-99229.herokuapp.com/api/auth', {
+        email: loginForm.email,
+        password: loginForm.password,
+      }).then(function (res) {
+        if (res.status === 200) {
+          setToken(res.data.token);
+         
+          // console.log(getUser().userType);
+          // history.push(`/${getUser().userType}/dashboard`)
+         }
+      }).then(function () {
+         axios.defaults.headers.common['x-auth-token']=getToken()
+          axios.get('https://hidden-wildwood-99229.herokuapp.com/api/auth'
+          ).then(function (res) {
+            console.log(res);
+            setUser(res.data)
+          }).catch(function (err) {
+              console.log(err);
+            })
+      }).then(function () {
+        console.log(getUser().userType);
+          history.push(`/${getUser().userType}/dashboard`)
+      }).catch(function (err) {
+        console.log(err);
+      })
+    console.log(loginForm);
+      }
+
     return (
         <>
         <div className='auth__container'>
@@ -16,20 +52,28 @@ function Login() {
            
            <div className='form__container'>
                <h2 className='form__heading'>Good to see you</h2>
-               <form className='form__content' method="POST">
-                    {auth_content.map(con =>
-                     (
+               <form className='form__content' method="POST" onSubmit={handleFormSumbit}>
+                   
                       <div className='form__div'>
-                        <div className='form__div-icon'>{con.a_icon}</div>
+                        <div className='form__div-icon'><AiOutlineMail/></div>
                         <div className='form__div-input'>
-                        <label htmlFor={con.a_name} className='form__label'>{con.a_label}</label>
-                        <input name={con.a_name} type={con.a_input} className='form__input' />
+                        <label htmlFor='email' className='form__label'>Email</label>
+                        <input name='email' type="email" className='form__input' value={loginForm.email} onChange={handleChange} />
                         </div>
                       </div>
-                     )
-                    )}    
+                      
+
+                   
+                      <div className='form__div'>
+                        <div className='form__div-icon'><AiOutlineLock/></div>
+                        <div className='form__div-input'>
+                        <label htmlFor="password" className='form__label'>Password</label>
+                        <input name="password" type="password" className='form__input' value={loginForm.password} onChange={handleChange}/>
+                        </div>
+                      </div>
+                          
+               <button type="submit" className='auth__button'>Log in</button>
                </form>
-               <button className='auth__button'>Log in</button>
            </div>
         </div>
         </>

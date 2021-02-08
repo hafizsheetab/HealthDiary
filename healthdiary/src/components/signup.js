@@ -1,16 +1,39 @@
-import React from 'react';
+import axios from 'axios';
+import React, { useState } from 'react';
 import { AiOutlineCheck, AiOutlineLock, AiOutlineMail, AiOutlineUser, AiOutlineUsergroupAdd } from "react-icons/ai";
 import signUpImg from '../resources/imgaes/signup.svg';
 import '../styles/authentication.css';
 
 
-function Signup() {
-    const auth_content = [
-        {a_icon:<AiOutlineUser/>,a_name:'fullname',a_label:'Fullname',a_input:'text'},
-        {a_icon:<AiOutlineMail/>,a_name:'email',a_label:'Email',a_input:'email'},
-        {a_icon:<AiOutlineLock/>,a_name:'password',a_label:'Password',a_input:'password'},
-        {a_icon:<AiOutlineCheck/>,a_name:'confirmPassword',a_label:'Confirm Password',a_input:'password'}
-    ]
+function Signup({history}) {
+    const [signupForm, setSignupForm] = useState({
+        name: '',
+        email: '',
+        password: '',
+        confirmPassword: '',
+        userType:''
+    })
+
+    const handleChange = (e) => {
+        setSignupForm({...signupForm,[e.target.name]:e.target.value})
+    }
+    const handleFormSumbit = (e) => {
+    e.preventDefault();
+        axios.post('https://hidden-wildwood-99229.herokuapp.com/api/users', {
+            name: signupForm.name,
+            email: signupForm.email,
+            password: signupForm.password,
+            userType:signupForm.userType
+        }).then(function (response) {
+            if (response.data.status) {
+              history.push('/login');
+            }
+        }).catch(function (err) {
+            console.log(err);
+        })
+    console.log(signupForm);
+  }
+    
     return (
         <>
         <div className='auth__container'>
@@ -18,31 +41,54 @@ function Signup() {
            
            <div className='form__container'>
                <h2 className='form__heading'>Begin Your Journey</h2>
-               <form className='form__content' method="POST">
-                    {auth_content.map(con =>
-                     (
+               <form className='form__content' method="POST" onSubmit={handleFormSumbit} >
+                   
                       <div className='form__div'>
-                        <div className='form__div-icon'>{con.a_icon}</div>
+                        <div className='form__div-icon'><AiOutlineUser /></div>
                         <div className='form__div-input'>
-                        <label htmlFor={con.a_name} className='form__label'>{con.a_label}</label>
-                        <input name={con.a_name} type={con.a_input} className='form__input' />
+                        <label htmlFor='name' className='form__label'>Fullname</label>
+                                <input name='name' type='text' className='form__input' value={signupForm.name} onChange={handleChange}/>
                         </div>
                       </div>
-                     )
-                    )}
+                
+                      <div className='form__div'>
+                        <div className='form__div-icon'><AiOutlineMail /></div>
+                        <div className='form__div-input'>
+                        <label htmlFor='email' className='form__label'>Email</label>
+                                <input name='email' type='email' className='form__input' value={signupForm.email} onChange={handleChange}/>
+                        </div>
+                        </div>
+
+                      <div className='form__div'>
+                        <div className='form__div-icon'><AiOutlineLock /></div>
+                        <div className='form__div-input'>
+                        <label htmlFor='password' className='form__label'>Password</label>
+                                <input name='password' type='password' className='form__input' value={signupForm.password} onChange={handleChange}/>
+                        </div>
+                        </div>
+
+                      <div className='form__div'>
+                        <div className='form__div-icon'><AiOutlineCheck /></div>
+                        <div className='form__div-input'>
+                        <label htmlFor='confirmPassword' className='form__label'>Confirm Password</label>
+                                <input name='confirmPassword' type='password' className='form__input' value={signupForm.confirmPassword} onChange={handleChange}/>
+                        </div>
+                      </div>  
+
                     <div className='form__div'>
                      <div className = 'form__div-icon'>{<AiOutlineUsergroupAdd/>}</div>
                      <div className='form__div-input'>
                          <label className = 'form__label'>Type</label>
-                         <select className='form__input'>
-                            <option value = 'Patient'>Patient</option>
-                            <option value = 'Doctor'>Doctor</option>
-                            <option value = 'Hospital'>Hospital</option>
+                         <select className='form__input' type='text' name='userType' value={signupForm.userType} onChange={handleChange}>
+                             <option value="" defaultValue disabled hidden>Choose here</option>
+                            <option value = 'patient'>Patient</option>
+                            <option value = 'doctor'>Doctor</option>
+                            <option value = 'hospital'>Hospital</option>
                          </select>
                      </div>
                     </div>    
+               <button type="submit" className='auth__button'>Create Account</button>
                </form>
-               <button className='auth__button'>Create Account</button>
            </div>
         </div>
         </>

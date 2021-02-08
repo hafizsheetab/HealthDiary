@@ -27,12 +27,13 @@ export const departmentData = {
         "Sports Medicine",
         "Tropical medicine",
         "Tuberculosis & Chest Diseases",
-        "Virology"
+        "Virology",
+        "None"
     ]
 }
 export const hospitalData = {
     value: [
-        "Square Hospital","Apollo Hospital","Ibn Sina Hospital"," Labaid Hospital","Popular Hospital","Birdem Hospital","BSMMU Hospital","Bangladesh Eye Hospital","Basundhura Hospital","Dhaka Medical College"
+        "Square Hospital","Apollo Hospital","Ibn Sina Hospital"," Labaid Hospital","Popular Hospital","Birdem Hospital","BSMMU Hospital","Bangladesh Eye Hospital","Basundhura Hospital","Dhaka Medical College","None"
     ]
 }
 export const drugData = {

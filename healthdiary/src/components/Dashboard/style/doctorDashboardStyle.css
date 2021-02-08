@@ -64,13 +64,13 @@
 }
 
 /*** Page 1 ****/
-.home {
+.doc_home {
   /* background-color: skyblue; */
   /* height: auto;
   width: auto; */
   margin-right: 1rem;
   display: grid;
-  grid-template-columns: auto auto auto;
+  grid-template-columns: auto auto;
   /* align-items: stretch; */
   grid-column-gap: 3rem;
   grid-row-gap: 1rem;
