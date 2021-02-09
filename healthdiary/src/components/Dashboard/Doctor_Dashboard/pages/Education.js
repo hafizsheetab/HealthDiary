@@ -1,23 +1,43 @@
+import axios from 'axios';
 import React, { useState } from 'react';
 import { Table } from 'react-bootstrap';
+import { timesStampToString } from '../../../Utility/convertTimeStamp';
+import { getToken } from '../../../Utility/localStorageAPI';
 import '../../style/doctorDashboardStyle.css';
 
 function Education() {
+    const [tableData, setTableData] = useState([])
     const [education, setEducation] = useState({
-    qualification: "",
+    name: "",
     passingDate: "",
-    school: ""
+    passingSchool: ""
   })
-
+  const deleteEducation = (e) => {
+      axios.defaults.headers.common['x-auth-token']=getToken()
+      axios.delete(`http://localhost:5000/api/doctor/qualifications/${e.target.value}`)
+      .then(function(res){
+        setTableData(res.data)
+      })
+  }
   const handleChange = (e) => {
     setEducation({...education,[e.target.name]:e.target.value})
   }
-
   const handleFormSubmit = (e) => {
     e.preventDefault();
-    console.log(education);
+    axios.post('http://localhost:5000/api/doctor/qualifications',{
+      ...education
+    }).then(function(res){
+      setTableData(res.data)
+    })
   }
-    
+  React.useEffect(() => {
+    async function fetchTableData(){
+      axios.defaults.headers.common['x-auth-token']=getToken()
+      let response = await axios.get('http://localhost:5000/api/doctor/qualifications')
+      setTableData(response.data)
+    }
+    fetchTableData()
+  }, [])
     return (
         <>
           <div className="dashboard marginOut">
@@ -27,8 +47,8 @@ function Education() {
                 <div className="edu_data">
                 
                 <div class="form__group field edu_data_item">
-                                <input type="text" className="form__field" placeholder="qualification" name="qualification" id="qualification" value={education.qualification} onChange={handleChange}/>
-                    <label for="qualification" className="form__label">Qualifications</label>
+                                <input type="text" className="form__field" placeholder="qualification" name="name" id="qualification" value={education.qualification} onChange={handleChange}/>
+                    <label for="qualification" className="form__label">Qualification Name</label>
                 </div>
                 
                 <div class="form__group field edu_data_item">
@@ -37,8 +57,8 @@ function Education() {
                 </div>
                 
                  <div class="form__group field edu_data_item">
-                    <input type="text" className="form__field" placeholder="Medical School" name="school" id="school" value={education.school} onChange={handleChange}/>
-                    <label for="school" className="form__label">Medical School</label>
+                    <input type="text" className="form__field" placeholder="Medical passingSchool" name="passingSchool" id="passingSchool" value={education.passingSchool} onChange={handleChange}/>
+                    <label for="passingSchool" className="form__label">Medical School Name</label>
                 </div>
                             
               </div> 
@@ -56,20 +76,24 @@ function Education() {
             <th>Qualification Name</th>
             <th>Medical School</th>
             <th>Passing Date</th>
-            
+            <th >Delete</th>
           </tr>
        </thead>
         <tbody>
-          <tr>
-              <td>Mbbs</td>
-              <td>Mbbs</td>
-              <td>12/3/2005</td>
-          </tr>
-          <tr>
-              <td>Mbbs</td>
-              <td>Mbbs</td>
-              <td>12/3/2005</td>
-          </tr>
+          {tableData.map(data => (
+      <tr >
+        <td>
+          {data.name}
+        </td>
+        <td>
+          {data.passingSchool}
+        </td>
+        <td>
+          {timesStampToString(data.passingDate)}
+        </td>
+        <button name = {data._id} value = {data._id} onClick = {deleteEducation}>delete</button>
+      </tr>
+    ))}
        </tbody>
        </Table>
       </div> 

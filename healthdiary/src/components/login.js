@@ -17,7 +17,7 @@ function Login({history}) {
     }
     const handleFormSumbit = (e) => {
       e.preventDefault();
-      axios.post('https://hidden-wildwood-99229.herokuapp.com/api/auth', {
+      axios.post('http://localhost:5000/api/auth', {
         email: loginForm.email,
         password: loginForm.password,
       }).then(function (res) {
@@ -29,7 +29,7 @@ function Login({history}) {
          }
       }).then(function () {
          axios.defaults.headers.common['x-auth-token']=getToken()
-          axios.get('https://hidden-wildwood-99229.herokuapp.com/api/auth'
+          axios.get('http://localhost:5000/api/auth'
           ).then(function (res) {
             console.log(res);
             setUser(res.data)

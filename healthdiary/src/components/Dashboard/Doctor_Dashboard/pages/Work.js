@@ -1,25 +1,64 @@
+import axios from 'axios'
 import React, { useState } from 'react'
 import { Table } from 'react-bootstrap'
+import { stringToTimeStamp, timesStampToString } from '../../../Utility/convertTimeStamp'
+import { getToken } from '../../../Utility/localStorageAPI'
 import { departmentData } from '../../Patient_Dashboard/DashboardData'
 import '../../style/doctorDashboardStyle.css'
 
 function Work() {
+  const [tableData, setTableData] = useState([])
    const [work, setWork] = useState({
-    hospital: "",
+    hospitalName: "",
     specialization:"",
-    experience_start: "",
-    experience_end: "",
-    working:""
+    fromDate: "",
+    toDate: "",
+    isStillWorking: false
   })
+  const deleteExperience = (e) => {
+    axios.defaults.headers.common['x-auth-token']=getToken()
+      axios.delete(`http://localhost:5000/api/doctor/experiences/${e.target.value}`)
+      .then(function(res){
+        setTableData(res.data)
+      })
 
+  }
   const handleChange = (e) => {
     setWork({...work,[e.target.name]:e.target.value})
   }
 
+  const handleChangeCheckBox = (e) => {
+    e.target.checked ? setWork({...work,[e.target.name]:true}) : setWork({...work,[e.target.name]:false})
+  }
+
   const handleFormSubmit = (e) => {
     e.preventDefault();
+    let payload = {
+      hospitalName: work.hospitalName,
+      specialization: work.specialization,
+      duration: {
+        fromDate: stringToTimeStamp(work.fromDate),
+        toDate: stringToTimeStamp(work.toDate),
+        isStillWorking: work.isStillWorking
+      }
+    }
+    axios.defaults.headers.common['x-auth-token']=getToken()
+    axios.post('http://localhost:5000/api/doctor/experiences',{
+      ...payload
+    }).then(function(res){
+      setTableData(res.data)
+    })
     console.log(work);
   }
+  React.useEffect(() => {
+    async function fetchTableData(){
+      axios.defaults.headers.common['x-auth-token']=getToken()
+      let response = await axios.get('http://localhost:5000/api/doctor/experiences')
+      setTableData(response.data)
+      console.log(response.data)
+    }
+    fetchTableData()
+  }, [])
     return (
         <>
         <div className="dashboard marginOut">
@@ -29,8 +68,8 @@ function Work() {
                 <div className="edu_data">
                 
                 <div class="form__group field edu_data_item">
-                                <input type="text" className="form__field" placeholder="hospital" name="hospital" id="hospital" value={work.hospital} onChange={handleChange} />
-                    <label for="hospital" className="form__label">Hospital</label>
+                                <input type="text" className="form__field" placeholder="hospitalName" name="hospitalName" id="hospitalName" value={work.hospitalName} onChange={handleChange} />
+                    <label for="hospitalName" className="form__label">Hospital</label>
                 </div>
                
                 <div className="form__group field">
@@ -42,18 +81,18 @@ function Work() {
                 </div>
                  
                 <div class="form__group field edu_data_item">
-                    <input type="date" className="form__field" placeholder="experience" name="experience_start" id="experience_start" value={work.experience_start} onChange={handleChange}/>
-                    <label for="experience_start" className="form__label">Start Date</label>
+                    <input type="date" className="form__field" placeholder="experience" name="fromDate" id="fromDate" value={work.fromDate} onChange={handleChange}/>
+                    <label for="fromDate" className="form__label">Start Date</label>
                 </div>
 
                  <div class="form__group field edu_data_item">
-                    <input type="date" className="form__field" placeholder="experience" name="experience_end" id="experience_end" value={work.experience_end} onChange={handleChange}/>
-                    <label for="experience_end" className="form__label">End Date</label>
+                    <input type="date" className="form__field" placeholder="experience" name="toDate" id="toDate" value={work.toDate} onChange={handleChange}/>
+                    <label for="toDate" className="form__label">End Date</label>
                 </div> 
 
                 <div class="form__group field edu_data_item">
-                    <input type="checkbox" className="form__field" placeholder=" Still Working" name="working" id="working" value={work.working} onClick={handleChange}/>
-                    <label for="working" className="form__label">Still Working</label>
+                    <input type="checkbox" className="form__field" placeholder=" Still isStillWorking" name="isStillWorking" id="isStillWorking"  onClick={handleChangeCheckBox}/>
+                    <label for="isStillWorking" className="form__label">Still Working</label>
                 </div>         
                    
               </div> 
@@ -72,20 +111,31 @@ function Work() {
             <th>Specialization</th>
             <th>Start Date</th>
             <th>End Date</th>
-            
+            <th>Still Working</th>
+            <th>Delete Experience</th>
           </tr>
        </thead>
         <tbody>
-          <tr>
-              <td>mmb</td>
-              <td>Mbbs</td>
-              <td>12/3/2005</td>
-          </tr>
-          <tr>
-              <td>Mbbs</td>
-              <td>Mbbs</td>
-              <td>12/3/2005</td>
-          </tr>
+        {tableData.map(data => (
+      <tr >
+        <td>
+          {data.hospitalName}
+        </td>
+        <td>
+          {data.specialization}
+        </td>
+        <td>
+          {timesStampToString(data.duration.fromDate)}
+        </td>
+        <td>
+          {timesStampToString(data.duration.toDate)}
+        </td>
+        <td>
+          {data.duration.isStillWorking.toString()}
+        </td>
+        <button name = {data._id} value = {data._id} onClick = {deleteExperience}>delete</button>
+      </tr>
+    ))}
        </tbody>
        </Table>
       </div> 

@@ -19,7 +19,7 @@ function Signup({history}) {
     }
     const handleFormSumbit = (e) => {
     e.preventDefault();
-        axios.post('https://hidden-wildwood-99229.herokuapp.com/api/users', {
+        axios.post('http://localhost:5000/api/users', {
             name: signupForm.name,
             email: signupForm.email,
             password: signupForm.password,
