@@ -15,7 +15,7 @@ function PatientNavbar() {
   return (
     <>
       <IconContext.Provider value={{ color: '#fff' }}>
-        <div className='navbar'> 
+        <div className='_navbar'> 
           <Link to='/' className="nav-items">
             <p>Find Doctors</p>
           </Link>

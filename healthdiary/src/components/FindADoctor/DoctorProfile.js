@@ -35,8 +35,8 @@ function DoctorProfile() {
             <div className="app_slot">
             <form method="POST">
               <div className="form__group field">
-                <input type="datetime-local" dateTime className="form__field" placeholder="Appointment Time Slot" name="dateOfBirth" id="dateOfBirth"  />
-                <label for="dateOfBirth" className="form__label">Appointment Time Slot</label>
+                <input type="datetime-local" dateTime className="form__field" placeholder="Appointment Time Slot" name="appointmentTime" id="appointmentTime"  />
+                <label for="appointmentTime" className="form__label">Appointment Time Slot</label>
               </div>
             <Button type='submit' className="doc_profile_btn" >Book Appointment</Button>         
             </form>

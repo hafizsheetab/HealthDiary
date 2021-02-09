@@ -4,6 +4,7 @@ import { Table } from 'react-bootstrap';
 import { timesStampToString } from '../../../Utility/convertTimeStamp';
 import { getToken } from '../../../Utility/localStorageAPI';
 import '../../style/doctorDashboardStyle.css';
+import Navbar from '../Navbar';
 
 function Education() {
     const [tableData, setTableData] = useState([])
@@ -39,7 +40,8 @@ function Education() {
     fetchTableData()
   }, [])
     return (
-        <>
+      <>
+        <Navbar />
           <div className="dashboard marginOut">
            <h4>Educational Information</h4>
             <div className="edu_container">
@@ -48,17 +50,17 @@ function Education() {
                 
                 <div class="form__group field edu_data_item">
                                 <input type="text" className="form__field" placeholder="qualification" name="name" id="qualification" value={education.qualification} onChange={handleChange}/>
-                    <label for="qualification" className="form__label">Qualification Name</label>
+                    <label for="qualification" className="form___label">Qualification Name</label>
                 </div>
                 
                 <div class="form__group field edu_data_item">
                     <input type="date" className="form__field" placeholder="Passing Date" name="passingDate" id="passingDate" value={education.passingDate} onChange={handleChange}/>
-                    <label for="passingDate" className="form__label">Passing Date</label>
+                    <label for="passingDate" className="form___label">Passing Date</label>
                 </div>
                 
                  <div class="form__group field edu_data_item">
                     <input type="text" className="form__field" placeholder="Medical passingSchool" name="passingSchool" id="passingSchool" value={education.passingSchool} onChange={handleChange}/>
-                    <label for="passingSchool" className="form__label">Medical School Name</label>
+                    <label for="passingSchool" className="form___label">Medical School Name</label>
                 </div>
                             
               </div> 
@@ -67,10 +69,10 @@ function Education() {
             </div>
             
              
-       <div className="app_head">
-         <h6>Upcoming/Follow up Appointment</h6>
-       </div>
-        <Table striped bordered hover>
+       <div className="edu_head">
+         <h6 className="app_head">Upcoming/Follow up Appointment</h6>
+      
+        <Table striped bordered hover >
        <thead>
           <tr>
             <th>Qualification Name</th>
@@ -97,7 +99,7 @@ function Education() {
        </tbody>
        </Table>
       </div> 
-            
+       </div>      
         
         </>
     )

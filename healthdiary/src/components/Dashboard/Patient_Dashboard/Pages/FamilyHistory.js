@@ -1,5 +1,7 @@
-import React from 'react'
-import { familyRelationData } from "../DashboardData"
+import React from 'react';
+import { familyRelationData } from "../DashboardData";
+import Navbar from '../Navbar';
+
 function FamilyHistory() {
     const preExistData = [
         {place:'Condition/Diseases',value:"diseases"},
@@ -7,7 +9,8 @@ function FamilyHistory() {
         {place:'Medicine Used',value:"medicine"},
     ]
     return (
-        <>
+      <>
+        <Navbar />
           <div className="dashboard marginOut">
             <h4>Health & Family History</h4>
           

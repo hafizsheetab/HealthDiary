@@ -20,18 +20,18 @@
 .form__field::placeholder {
   color: transparent;
 }
-.form__field:placeholder-shown ~ .form__label {
+.form__field:placeholder-shown ~ .form___label {
   font-size: 1rem;
   cursor: text;
   top: 20px;
 }
 
-.form__label {
+.form___label {
   position: absolute;
   top: -0.7rem;
   display: block;
   transition: 0.2s;
-  font-size: 0.7rem;
+  font-size: 0.6rem;
   color: var(--color-primary);
 }
 
@@ -47,7 +47,7 @@
   );
   border-image-slice: 1;
 }
-.form__field:focus ~ .form__label {
+.form__field:focus ~ .form___label {
   position: absolute;
   top: -0.5rem;
   display: block;
@@ -123,8 +123,11 @@ h6 {
   padding-left: 0.8rem;
   margin-right: 1rem;
 }
-.app_head {
-  background-color: var(--color-primary-light-extra);
+.edu_head {
+  margin-right: 2rem;
+}
+.edu_head h6 {
+  margin-right: 0;
 }
 .doc_app_btn {
   color: #fff;
@@ -149,6 +152,7 @@ h6 {
 .edu_btn {
   width: 5rem;
   font-size: 1rem;
+  margin-bottom: 2rem;
 }
 .edu_data_item {
   margin-bottom: 1rem;

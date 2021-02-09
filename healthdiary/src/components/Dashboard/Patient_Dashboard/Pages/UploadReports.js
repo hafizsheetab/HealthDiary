@@ -1,9 +1,11 @@
-import React from 'react'
-import '../../style/patientDashboardStyle.css'
+import React from 'react';
+import '../../style/patientDashboardStyle.css';
+import Navbar from '../Navbar';
 
 function UploadReports() {
     return (
-        <>
+      <>
+        <Navbar />
         <div className="up_container">
             <div className="upload_reports home marginOut">
                 <div className="up_text">

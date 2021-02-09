@@ -1,8 +1,9 @@
 import axios from 'axios';
-import React,{useState} from 'react';
+import React, { useState } from 'react';
 import { timesStampToString } from '../../../Utility/convertTimeStamp';
 import { getToken } from '../../../Utility/localStorageAPI';
 import '../../style/patientDashboardStyle.css';
+import Navbar from '../Navbar';
 
 function Dashboard() {
   const [profile, setProfile] = useState({
@@ -63,6 +64,8 @@ function Dashboard() {
     fetchData()
   },[])
   return (
+    <>
+      <Navbar />
     <div className="dashboard marginOut">
       <h4>Personal Information</h4>
       <div>
@@ -114,6 +117,7 @@ function Dashboard() {
             <div className="form__group field">
              <label className="form__label" for="cars">Blood Group</label>
               <select name="bloodGroup" id="blood" className="form__field" value = {profile.bloodGroup} onChange = {handleChange}>
+                <option value="" >Select Your Blood Group</option>
                 <option value="A+">A+</option>
                 <option value="A-">A-</option>
                 <option value="B+">B+</option>
@@ -128,7 +132,8 @@ function Dashboard() {
         </form>
         </div>
      
-    </div>
+      </div>
+      </>
   );
 }
 

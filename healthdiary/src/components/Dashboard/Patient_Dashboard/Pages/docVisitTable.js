@@ -1,13 +1,15 @@
-import React, { useState } from 'react'
-import { Table } from 'react-bootstrap'
-import '../../style/patientDashboardStyle.css'
+import React, { useState } from 'react';
+import { Table } from 'react-bootstrap';
+import '../../style/patientDashboardStyle.css';
+import Navbar from '../Navbar';
 
 function DocVisitTable() {
 
      const [state, setState] = useState([])
 
     return (
-        <>   
+      <>  
+        <Navbar />
         <div className="doc_table marginOut">
        <div className="app_head">
          <h6>Upcoming/Follow up Appointment</h6>

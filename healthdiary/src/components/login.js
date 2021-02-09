@@ -57,7 +57,7 @@ function Login({history}) {
                       <div className='form__div'>
                         <div className='form__div-icon'><AiOutlineMail/></div>
                         <div className='form__div-input'>
-                        <label htmlFor='email' className='form___label'>Email</label>
+                        <label htmlFor='email' className='form-label'>Email</label>
                         <input name='email' type="email" className='form__input' value={loginForm.email} onChange={handleChange} />
                         </div>
                       </div>
@@ -67,7 +67,7 @@ function Login({history}) {
                       <div className='form__div'>
                         <div className='form__div-icon'><AiOutlineLock/></div>
                         <div className='form__div-input'>
-                        <label htmlFor="password" className='form___label'>Password</label>
+                        <label htmlFor="password" className='form-label'>Password</label>
                         <input name="password" type="password" className='form__input' value={loginForm.password} onChange={handleChange}/>
                         </div>
                       </div>

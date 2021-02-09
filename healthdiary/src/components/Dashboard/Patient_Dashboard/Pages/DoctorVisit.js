@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import '../../style/patientDashboardStyle.css';
 import { departmentData, divisionData, hospitalData } from '../DashboardData';
+import Navbar from '../Navbar';
 
 function DoctorVisit() {
   const [docData, setDocData] = useState({
@@ -26,6 +27,7 @@ function DoctorVisit() {
 
   return (
     <>
+      <Navbar />
     <div className="dashboard marginOut">
       <h4>Doctor Visits</h4>
       <div>

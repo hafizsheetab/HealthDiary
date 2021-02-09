@@ -5,6 +5,7 @@ import { stringToTimeStamp, timesStampToString } from '../../../Utility/convertT
 import { getToken } from '../../../Utility/localStorageAPI'
 import { departmentData } from '../../Patient_Dashboard/DashboardData'
 import '../../style/doctorDashboardStyle.css'
+import Navbar from '../Navbar'
 
 function Work() {
   const [tableData, setTableData] = useState([])
@@ -60,7 +61,8 @@ function Work() {
     fetchTableData()
   }, [])
     return (
-        <>
+      <>
+        <Navbar />
         <div className="dashboard marginOut">
            <h4>Work Profile</h4>
            <div className="edu_container">
@@ -69,11 +71,11 @@ function Work() {
                 
                 <div class="form__group field edu_data_item">
                                 <input type="text" className="form__field" placeholder="hospitalName" name="hospitalName" id="hospitalName" value={work.hospitalName} onChange={handleChange} />
-                    <label for="hospitalName" className="form__label">Hospital</label>
+                    <label for="hospitalName" className="form___label">Hospital</label>
                 </div>
                
                 <div className="form__group field">
-                    <label for="department" className="form__label">Specialization</label>
+                    <label for="department" className="form___label">Specialization</label>
                     <select type="text" className="form__field"     placeholder="Specialization" name="specialization" id="specialization" value={work.specialization} onChange={handleChange}>
                         {departmentData.value.map(con =>
                         (<option value={con}>{con}</option>))}
@@ -82,17 +84,17 @@ function Work() {
                  
                 <div class="form__group field edu_data_item">
                     <input type="date" className="form__field" placeholder="experience" name="fromDate" id="fromDate" value={work.fromDate} onChange={handleChange}/>
-                    <label for="fromDate" className="form__label">Start Date</label>
+                    <label for="fromDate" className="form___label">Start Date</label>
                 </div>
 
                  <div class="form__group field edu_data_item">
                     <input type="date" className="form__field" placeholder="experience" name="toDate" id="toDate" value={work.toDate} onChange={handleChange}/>
-                    <label for="toDate" className="form__label">End Date</label>
+                    <label for="toDate" className="form___label">End Date</label>
                 </div> 
 
                 <div class="form__group field edu_data_item">
                     <input type="checkbox" className="form__field" placeholder=" Still isStillWorking" name="isStillWorking" id="isStillWorking"  onClick={handleChangeCheckBox}/>
-                    <label for="isStillWorking" className="form__label">Still Working</label>
+                    <label for="isStillWorking" className="form___label">Still Working</label>
                 </div>         
                    
               </div> 

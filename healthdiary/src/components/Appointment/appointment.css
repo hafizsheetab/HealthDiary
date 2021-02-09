@@ -1,0 +1,41 @@
+.appdet-head {
+  text-align: center;
+  margin: 3rem auto;
+}
+.doc-card {
+  display: flex;
+  justify-content: space-evenly;
+  margin-bottom: 4rem;
+}
+.appdet-title {
+  font-weight: bold;
+  text-align: center;
+  font-size: 1.3rem;
+  word-spacing: 3px;
+}
+.appdet-btn {
+  background-color: var(--color-primary);
+  border: 1px solid var(--color-primary);
+  display: block;
+  margin: 1rem auto;
+}
+.appdet-card-container {
+  max-width: 1200px;
+  margin: auto;
+}
+.appdet-card-head {
+  margin: auto;
+}
+.appdet-div {
+  display: flex;
+}
+.appdet-main-text {
+}
+.appdet-div p {
+  margin-left: 0.5rem;
+  font-size: 1.1rem;
+}
+.appdet-para {
+  font-size: 1.1rem;
+  color: var(--color-primary);
+}

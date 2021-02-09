@@ -1,10 +1,12 @@
 import React from 'react';
 import '../../style/patientDashboardStyle.css';
 import { drugData, reactionData } from '../DashboardData';
+import Navbar from '../Navbar';
 
 function Allergies() {
   return (
     <>
+     <Navbar />
     <div className="dashboard marginOut">
       <h4>Allergies</h4>
     </div>

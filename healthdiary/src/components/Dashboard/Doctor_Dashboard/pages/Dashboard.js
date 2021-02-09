@@ -1,9 +1,11 @@
 import axios from 'axios';
 import React, { useState } from 'react';
+import { stringToTimeStamp, timesStampToString } from '../../../Utility/convertTimeStamp';
 import { getToken, getUser } from '../../../Utility/localStorageAPI';
 import { departmentData } from '../../Patient_Dashboard/DashboardData';
-import {stringToTimeStamp, timesStampToString} from '../../../Utility/convertTimeStamp'
 import '../../style/doctorDashboardStyle.css';
+import Navbar from '../Navbar';
+
 var moment = require('moment'); // require
 moment().format();
 
@@ -64,6 +66,8 @@ function DoctorDashboard() {
     fetchData()
   },[])
   return (
+    <>
+    <Navbar />
     <div className="dashboard marginOut">
       <h4>Personal Information</h4>
       <div>
@@ -71,26 +75,26 @@ function DoctorDashboard() {
          
           <div className="form__group field">
             <input type="text" className="form__field" placeholder="Name" name="name" id="name" value={profile.name} onChange={(e) => {e.preventDefault()}} />
-              <label for="name" className="form__label">Name</label>
+              <label for="name" className="form___label">Name</label>
           </div>
 
            <div className="form__group field">
             <input type="text" className="form__field" placeholder="Email" name="email" id="email"  value={profile.email} onChange={(e) => {e.preventDefault()}} />
-              <label for="email" className="form__label">Email</label>
+              <label for="email" className="form___label">Email</label>
           </div>
 
            <div className="form__group field">
             <input type="text" className="form__field" placeholder="contactNo" name="contactNo" id="contactNo"  value={profile.contactNo} onChange={handleChange} />
-              <label for="contactNo" className="form__label">contactNo</label>
+              <label for="contactNo" className="form___label">Contact Number</label>
           </div>
 
           <div className="form__group field">
             <input type="date" className="form__field" placeholder="Date Of Birth" name="dateOfBirth" id="dateOfBirth"  value={profile.dateOfBirth} onChange={handleChange} />
-              <label for="dateOfBirth" className="form__label">Date Of Birth</label>
+              <label for="dateOfBirth" className="form___label">Date Of Birth</label>
           </div>
 
            <div className="form__group field">
-              <label for="department" className="form__label">Specialization</label>
+              <label for="department" className="form___label">Specialization</label>
               <select type="text" className="form__field"     placeholder="Specialization" name="specialization" id="specialization" value={profile.specialization} onChange={handleChange}>
                 {departmentData.value.map(con =>
                 (<option value={con}>{con}</option>))}
@@ -101,6 +105,7 @@ function DoctorDashboard() {
         </form>
         </div>
     </div>
+    </>
   );
 }
 

@@ -1,6 +1,7 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import AppointmentDetails from './components/Appointment/AppointmentDetails';
 import Chat from './components/Chat/Chat';
 import DoctorDashboard from './components/Dashboard/Doctor_Dashboard/pages/Dashboard';
 import DocAppoitments from './components/Dashboard/Doctor_Dashboard/pages/DocAppoitments';
@@ -26,29 +27,32 @@ function App() {
     <>
 
       <Router> 
-        {/* <Navbar/> */}
         <Switch>
           <Route path="/signup" component={Signup} />
           <Route path="/login" component={Login} />
           <Route path="/howitworks" component={HowItWorks} />
           <Route exact path="/" component={LandingPage} />
-            <Route path='/patient/dashboard' exact component={Dashboard} />
+
             <Route path='/patient/doctorvisit' component={DoctorVisit} />
             <Route exact path='/patient/finddoctor' component={DoctorFind} />
             <Route path='/patient/finddoctor/:doctorId' component={DoctorProfile} />
+            
+            <Route path='/patient/dashboard' exact component={Dashboard} />
             <Route path='/patient/appointmenttable' component={DocVisitTable} />  
             <Route path='/patient/allergies' component={Allergies} />  
             <Route path='/patient/pain' component={Pain} />  
             <Route path='/patient/history' component={History} />  
           <Route path='/patient/uploadreports' component={UploadReports} />
+
           <Route path='/doctorcard' component={DoctorCard} />
           <Route path='/messages/:receiverId' component={Chat} />
           
-          <Route path='/doctor/dashboard' component={DoctorDashboard} />
-          <Route path='/doctor/appointmenttable' component={DocAppoitments} />
+          <Route path='/doctor/dashboard' component={DoctorDashboard}/>
+          <Route path='/doctor/appointmenttable' component={DocAppoitments}/>
           <Route path='/doctor/education' component={Education} />
           <Route path='/doctor/work' component={Work} />
           
+          <Route path='/appointment/details' component={AppointmentDetails}/>
         </Switch>
     </Router>
     </>
