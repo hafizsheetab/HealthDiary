@@ -3,13 +3,15 @@ const router = express.Router()
 const Doctor = require('../Models/Doctor')
 const Patient = require('../Models/Patient')
 const Hospital = require('../Models/Hospital')
+const User = require('../models/User')
 const {check, validationResult} = require('express-validator')
+const auth = require('../Middleware/auth')
 
 
 
-router.get('/patient', async(req,res) => {
+router.get('/patient',auth, async(req,res) => {
    try{
-    let user = req.body.user
+    let user = await User.findById(req.user.user.id)
     let patient = await Patient.findOne({'user' : `${user._id}`})
     if(!patient){
         return res.status(400).json({msg : 'ProfileNotFound'})
@@ -24,8 +26,9 @@ router.get('/patient', async(req,res) => {
    }
 
 })
-router.post('/patient/create',async (req,res) =>{
-    let {user, consultationHistory} = req.body
+router.post('/patient/create',auth,async (req,res) =>{
+    let user = await User.findById(req.user.user.id)
+    let consultationHistory = req.body
     let patient = new Patient({
         user,
         consultationHistory
@@ -36,7 +39,7 @@ router.post('/patient/create',async (req,res) =>{
     
 
 })
-router.get('/patient/hospitals',async(req,res) =>{
+router.get('/patient/hospitals',auth,async(req,res) =>{
     try{
         await Hospital.find({},{},(err,hospitals) => {
             if(err){
@@ -57,13 +60,13 @@ router.get('/patient/hospitals',async(req,res) =>{
 })
 router.get('/patient/hospitals/doctors',  async(req,res) =>{
     try{
-        let {hospital} = req.body
-        await Doctor.find({'hospital' :`${hospital._id}` },(err,hospitals) => {
+        let hospital = req.body
+        await Doctor.find({'hospital' :`${hospital._id}` },(err,doctors) => {
         if(err){
             console.log(err.message)
         }
         else{
-            res.json(hospitals)
+            res.json(doctors)
         }
  })
 
@@ -76,9 +79,9 @@ router.get('/patient/hospitals/doctors',  async(req,res) =>{
 
 
 //doctor route
-router.get('/doctor', async(req,res) => {
+router.get('/doctor',auth, async(req,res) => {
     try{
-     let user = req.body.user
+     let user = await User.findById(req.user.user.id)
      let doctor = await Doctor.findOne({'user' : `${user._id}`})
      if(!doctor){
          return res.status(400).json({msg : 'ProfileNotFound'})
@@ -95,7 +98,8 @@ router.get('/doctor', async(req,res) => {
  })
  router.post('/doctor/create',async (req,res) =>{
      try{
-        let {user,hospital,department, qualifications} = req.body
+        let user = await User.findById(req.user.user.id)
+        let user,hospital,department, qualifications = req.body
         let doctor = new Doctor({
             user,
             hospital,
@@ -116,9 +120,9 @@ router.get('/doctor', async(req,res) => {
      
  
  })
- router.get('/hospital', async(req,res) => {
+ router.get('/hospital',auth, async(req,res) => {
     try{
-     let user = req.body.user
+     let user = await User.findById(req.user.user.id)
      let hospital = await Hospital.findOne({'user' : `${user._id}`})
      if(!hospital){
          return res.status(400).json({msg : 'ProfileNotFound'})
@@ -129,12 +133,14 @@ router.get('/doctor', async(req,res) => {
     }
     catch(err){
         console.log(err.message)
+        res.status(400).json({err : err.message})
     }
  
  })
- router.post('/hospital/create',async (req,res) =>{
+ router.post('/hospital/create', auth, async (req,res) =>{
      try{
-        let {user,address} = req.body
+        let user = await User.findById(req.user.user.id)
+        let user,address = req.body
         let hospital = new Hospital({
             user,
             address
