@@ -1,12 +1,21 @@
-import React, { useState } from 'react';
-import { Table } from 'react-bootstrap';
-import '../../style/doctorDashboardStyle.css';
-import Navbar from '../Navbar';
+import axios from 'axios'
+import React, { useState } from 'react'
+import { Table } from 'react-bootstrap'
+import { timeStampToStringWithDate } from '../../../Utility/convertTimeStamp'
+import { getToken } from '../../../Utility/localStorageAPI'
+import '../../style/doctorDashboardStyle.css'
 
 function DocAppoitments() {
 
-     const [state, setState] = useState([])
-    
+    const [tableData, setTableData] = useState([])
+    React.useEffect(()=> {
+      async function fetcData(){
+        axios.defaults.headers.common['x-auth-token']=getToken()
+        let response = await axios.get('http://localhost:5000/api/appointment/doctor')
+        setTableData(response.data)
+      }
+      fetcData()
+    },[])
     return (
       <>   
        <Navbar /> 
@@ -17,24 +26,23 @@ function DocAppoitments() {
         <Table striped bordered hover>
        <thead>
           <tr>
-            <th>Patient</th>
-            <th>Problem</th>
-            <th>Date</th>
+            <th>Patient Name</th>
             <th>Time</th>
-            <th>Additional</th>
-            <th>Status</th>
+            <th>Confirm</th>
+            <th>Complete</th>
+            <th>View Details</th>
           </tr>
        </thead>
         <tbody>
-          {state.map((items,index)=>
-            <tr key={index+1}>
-            <td>{items.specialization}</td>
-            <td>{items.hospital}</td>
-            <td>{items.date}</td>
-            <td>{items.time}</td>
-            <td>{items.reason}</td>
-          </tr>
-          )}
+          {tableData.map(data => (
+            <tr>
+              <td>{data.patient.name}</td>
+              <td><input type="datetime-local" dateTime className="form__field" placeholder="Appointment Time Slot" name="dateOfBirth" id="dateOfBirth" value = {timeStampToStringWithDate(data.time)} onClick = {(e) => e.preventDefault()} /></td>
+              <td>{data.confirmed.status ? 'Confirmed' : (<button>Confirm</button>)}</td>
+              <td>{data.completed.status ? 'Completed' : (<button>Complete</button>)}</td>
+              <td><button>View Details</button></td>
+            </tr>
+          ))}
        </tbody>
        </Table>
       </div> 

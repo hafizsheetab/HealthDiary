@@ -5,15 +5,14 @@ import { getToken, getUser } from '../Utility/localStorageAPI'
 import DoctorCard from './DoctorCard'
 import './findADoc.css'
 
-function DoctorFind() {
-  const [appointmentData, setAppointmentDate] = useState({})
-  const [tableData, setTableData] = useState([])
+function DoctorFind({history}) {
   const [findField, setfindField] = useState({
     specialization: ""
   })
-  const doctors = [
-    {name:'Shafi',email:'hg@gmail.com',contactNo:'0192389302',specialization:'Psycology' ,qualification:'MBBS ABC',_id:'18391'}
-  ]
+  const [doctors, setDoctors] = useState([])
+  // const doctors = [
+  //   {name:'Shafi',email:'hg@gmail.com',contactNo:'0192389302',specialization:'Psycology' ,qualification:'MBBS ABC',_id:'18391'}
+  // ]
   const handleChange = (e) => {
     setfindField({...findField,[e.target.name]:e.target.value})
   }
@@ -22,28 +21,21 @@ function DoctorFind() {
     axios.defaults.headers.common['x-auth-token']=getToken()
     axios.get(`http://localhost:5000/api/doctor/finddoctors/${findField.specialization}`).then(
       function(res){
-        setTableData(res.data)
+        let vDoctors = res.data;
+        vDoctors = vDoctors.map(vDoctor => {
+          vDoctor = {
+            ...vDoctor.user,
+            contactNo: vDoctors.contactNo,
+            specialization: vDoctor.specialization,
+            qualification:  "".concat(vDoctor.qualifications.map(qualification => qualification.name + " "))
+          }
+          return vDoctor
+        })
+        setDoctors(vDoctors)
       }
     )
   }
   
-  const handleAppointment = (e) => {
-    axios.defaults.headers.common['x-auth-token']=getToken()
-    let payload  = {
-      patient: {
-        user: getUser()
-      },
-      doctor: {
-        user: {_id : e.target.value}
-      }
-    }
-    axios.post('http://localhost:5000/api/appointment', {
-      ...payload
-    }).then(function (res){
-      console.log(res)
-    })
-    console.log(payload)
-  }
     return (
         <div className="find_container">
             <div className="search_box">
@@ -61,7 +53,7 @@ function DoctorFind() {
             </div>
 
         {doctors.map(i => (
-          <DoctorCard doctor={i}/>
+          <DoctorCard doctor={i} history = {history}/>
             ))}
         
         </div>
