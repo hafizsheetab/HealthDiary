@@ -1,3 +1,4 @@
+import axios from 'axios';
 import React, { useState } from 'react';
 import { AiOutlineCheck, AiOutlineLock, AiOutlineMail, AiOutlineUser, AiOutlineUsergroupAdd } from "react-icons/ai";
 import signUpImg from '../resources/imgaes/signup.svg';
@@ -21,22 +22,20 @@ function Signup({history}) {
     }
     const handleFormSumbit = (e) => {
       e.preventDefault();
-      if (validation(signupForm.password, signupForm.confirmPassword)) {
-        // axios.post('http://localhost:5000/api/users', {
-        //     name: signupForm.name,
-        //     email: signupForm.email,
-        //     password: signupForm.password,
-        //     userType:signupForm.userType
-        // }).then(function (response) {
-        //     if (response.data.status) {
-        //       history.push('/login');
-        //     }
-        // }).catch(function (err) {
-        //     console.log(err);
-        // })
-        console.log(signupForm)
-      }
-    console.log(signupForm);
+        axios.post('http://localhost:5000/api/users', {
+            name: signupForm.name,
+            email: signupForm.email,
+            password: signupForm.password,
+            userType:signupForm.userType
+        }).then(function (response) {
+            if (response.data.status) {
+              history.push('/login');
+            }
+        }).catch(function (err) {
+            console.log(err);
+        })
+       
+    // console.log(signupForm);
   }
   const validation = (password,confirmPassword) => {
     let passwordError = "";

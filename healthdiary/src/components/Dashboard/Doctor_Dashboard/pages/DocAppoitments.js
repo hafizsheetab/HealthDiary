@@ -4,6 +4,7 @@ import { Table } from 'react-bootstrap'
 import { timeStampToStringWithDate } from '../../../Utility/convertTimeStamp'
 import { getToken } from '../../../Utility/localStorageAPI'
 import '../../style/doctorDashboardStyle.css'
+import Navbar from '../Navbar'
 
 function DocAppoitments() {
 
