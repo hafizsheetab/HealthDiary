@@ -46,7 +46,7 @@ function Signup({history}) {
                       <div className='form__div'>
                         <div className='form__div-icon'><AiOutlineUser /></div>
                         <div className='form__div-input'>
-                        <label htmlFor='name' className='form__label'>Fullname</label>
+                        <label htmlFor='name' className='form___label'>Fullname</label>
                                 <input name='name' type='text' className='form__input' value={signupForm.name} onChange={handleChange}/>
                         </div>
                       </div>
@@ -54,7 +54,7 @@ function Signup({history}) {
                       <div className='form__div'>
                         <div className='form__div-icon'><AiOutlineMail /></div>
                         <div className='form__div-input'>
-                        <label htmlFor='email' className='form__label'>Email</label>
+                        <label htmlFor='email' className='form___label'>Email</label>
                                 <input name='email' type='email' className='form__input' value={signupForm.email} onChange={handleChange}/>
                         </div>
                         </div>
@@ -62,7 +62,7 @@ function Signup({history}) {
                       <div className='form__div'>
                         <div className='form__div-icon'><AiOutlineLock /></div>
                         <div className='form__div-input'>
-                        <label htmlFor='password' className='form__label'>Password</label>
+                        <label htmlFor='password' className='form___label'>Password</label>
                                 <input name='password' type='password' className='form__input' value={signupForm.password} onChange={handleChange}/>
                         </div>
                         </div>
@@ -70,7 +70,7 @@ function Signup({history}) {
                       <div className='form__div'>
                         <div className='form__div-icon'><AiOutlineCheck /></div>
                         <div className='form__div-input'>
-                        <label htmlFor='confirmPassword' className='form__label'>Confirm Password</label>
+                        <label htmlFor='confirmPassword' className='form___label'>Confirm Password</label>
                                 <input name='confirmPassword' type='password' className='form__input' value={signupForm.confirmPassword} onChange={handleChange}/>
                         </div>
                       </div>  
@@ -78,7 +78,7 @@ function Signup({history}) {
                     <div className='form__div'>
                      <div className = 'form__div-icon'>{<AiOutlineUsergroupAdd/>}</div>
                      <div className='form__div-input'>
-                         <label className = 'form__label'>Type</label>
+                         <label className = 'form___label'>Type</label>
                          <select className='form__input' type='text' name='userType' value={signupForm.userType} onChange={handleChange}>
                              <option value="" defaultValue disabled hidden>Choose here</option>
                             <option value = 'patient'>Patient</option>

@@ -1,8 +1,8 @@
 import axios from 'axios'
-import React,{useState} from 'react'
-import { Table } from 'react-bootstrap'
-import { departmentData, hospitalData } from '../Dashboard/Patient_Dashboard/DashboardData'
+import React, { useState } from 'react'
+import { departmentData } from '../Dashboard/Patient_Dashboard/DashboardData'
 import { getToken, getUser } from '../Utility/localStorageAPI'
+import DoctorCard from './DoctorCard'
 import './findADoc.css'
 
 function DoctorFind() {
@@ -11,6 +11,9 @@ function DoctorFind() {
   const [findField, setfindField] = useState({
     specialization: ""
   })
+  const doctors = [
+    {name:'Shafi',email:'hg@gmail.com',contactNo:'0192389302',specialization:'Psycology' ,qualification:'MBBS ABC',_id:'18391'}
+  ]
   const handleChange = (e) => {
     setfindField({...findField,[e.target.name]:e.target.value})
   }
@@ -56,26 +59,11 @@ function DoctorFind() {
                   <button type="submit" className="button doc_find_btn">Search</button>
                 </form>
             </div>
-            <Table striped bordered hover>
-              <thead>
-                <tr>
-                  <th>Doctor Name</th>
-                  <th>Specialization</th>
-                  <th>Make Appointment</th>
-                  <th>Rating </th>
-                </tr>
-              </thead>
-              <tbody>
-                {tableData.map(data => (
-                  <tr>
-                    <td>{data.user.name}</td>
-                    <td>{data.specialization}</td>
-                    <button name = {data.user.specialization} value ={data.user._id} onClick = {handleAppointment}>Make Appointment</button>
-                    <td>5</td>
-                  </tr>
-                ))}
-              </tbody>
-              </Table>       
+
+        {doctors.map(i => (
+          <DoctorCard doctor={i}/>
+            ))}
+        
         </div>
     )
 }

@@ -95,3 +95,22 @@
 .form__field:invalid {
   box-shadow: none;
 }
+
+.doc__profile {
+  max-width: 1140px;
+  margin: auto;
+  margin-top: 2rem;
+}
+.doc__profile_heading {
+  font-size: 1.3rem;
+}
+.app_slot {
+  margin: 4rem auto;
+  max-width: 20rem;
+}
+.doc_profile_btn {
+  background-color: var(--color-primary);
+  display: block;
+  margin: 2rem auto;
+  border: 1px solid var(--color-primary);
+}
