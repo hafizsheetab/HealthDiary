@@ -11,22 +11,26 @@ function PatientNavbar() {
   const [sidebar, setSidebar] = useState(true);
 
   // const showSidebar = () => setSidebar(!sidebar);
+  const handleClick = (e) => {
+    localStorage.removeItem('user')
+    localStorage.removeItem('token')
+  }
 
   return (
     <>
       <IconContext.Provider value={{ color: '#fff' }}>
         <div className='_navbar'> 
-          <Link to='/' className="nav-items">
+          <Link to='/patient/finddoctor' className="nav-items">
             <p>Find Doctors</p>
           </Link>
-          <Link to='/' className="nav-items">
+          <Link to='/patient/dashboard' className="nav-items">
             <AiFillHome/>
           </Link> 
-          <Link to='/' className="nav-items">
+          
             <FaBell />
-          </Link>
+          
           <Link to='/' className="nav-items">
-            <BiLogOut />
+            <BiLogOut onClick = {handleClick}/>
           </Link>
         </div>
         

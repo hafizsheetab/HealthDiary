@@ -7,8 +7,10 @@ import { getToken } from '../../../Utility/localStorageAPI'
 import '../../style/patientDashboardStyle.css'
 import Navbar from '../Navbar'
 
-function DocVisitTable() {
-
+function DocVisitTable({history}) {
+    const handleClick = (e) => {
+        history.push(`/patient/appointment/details/${e.target.value}`)
+    }
     const[tableData, setTableData] = useState([])
     React.useEffect(()=> {
       async function fetcData(){
@@ -54,7 +56,7 @@ function DocVisitTable() {
               <td>
                 {data.completed.status.toString()}
               </td>
-              <td><button>View Details</button></td>
+              <td><button value = {data._id} onClick = {handleClick}>View Details</button></td>
             </tr>
           ))}
        </tbody>

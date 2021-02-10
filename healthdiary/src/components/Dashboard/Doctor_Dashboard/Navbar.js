@@ -9,6 +9,10 @@ import { SidebarData } from './SidebarData';
 
 function PatientNavbar() {
   const [sidebar, setSidebar] = useState(true);
+  const handleClick = (e) => {
+    localStorage.removeItem('user')
+    localStorage.removeItem('token')
+  }
 
   // const showSidebar = () => setSidebar(!sidebar);
 
@@ -16,14 +20,14 @@ function PatientNavbar() {
     <>
       <IconContext.Provider value={{ color: '#fff' }}>
         <div className='_navbar'> 
-          <Link to='/' className="nav-items">
+          <Link to='/doctor/dashboard' className="nav-items">
             <AiFillHome/>
           </Link> 
           <Link to='/' className="nav-items">
             <FaBell />
           </Link>
           <Link to='/' className="nav-items">
-            <BiLogOut />
+            <BiLogOut onClick = {handleClick}/>
           </Link>
         </div>
         

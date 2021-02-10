@@ -6,9 +6,12 @@ import { getToken } from '../../../Utility/localStorageAPI'
 import '../../style/doctorDashboardStyle.css'
 import Navbar from '../Navbar'
 
-function DocAppoitments() {
+function DocAppoitments({history}) {
 
     const [tableData, setTableData] = useState([])
+    const handleClick = (e) => {
+      history.push(`/doctor/appointment/details/${e.target.value}`)
+  }
     React.useEffect(()=> {
       async function fetcData(){
         axios.defaults.headers.common['x-auth-token']=getToken()
@@ -29,8 +32,6 @@ function DocAppoitments() {
           <tr>
             <th>Patient Name</th>
             <th>Time</th>
-            <th>Confirm</th>
-            <th>Complete</th>
             <th>View Details</th>
           </tr>
        </thead>
@@ -39,9 +40,8 @@ function DocAppoitments() {
             <tr>
               <td>{data.patient.name}</td>
               <td><input type="datetime-local" dateTime className="form__field" placeholder="Appointment Time Slot" name="dateOfBirth" id="dateOfBirth" value = {timeStampToStringWithDate(data.time)} onClick = {(e) => e.preventDefault()} /></td>
-              <td>{data.confirmed.status ? 'Confirmed' : (<button>Confirm</button>)}</td>
-              <td>{data.completed.status ? 'Completed' : (<button>Complete</button>)}</td>
-              <td><button>View Details</button></td>
+              
+              <td><button value = {data._id} onClick={handleClick}>View Details</button></td>
             </tr>
           ))}
        </tbody>

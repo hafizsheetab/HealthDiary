@@ -54,8 +54,8 @@ function App() {
           <Route path='/doctor/education' component={Education} />
           <Route path='/doctor/work' component={Work} />
           
-          <Route path='/patient/appointment/details' component={PatientAppointmentDetails} />
-          <Route path='/doctor/appointment/details' component={DoctorAppointmentDetails} />
+          <Route path='/patient/appointment/details/:appointmentId' component={PatientAppointmentDetails} />
+          <Route path='/doctor/appointment/details/:appointmentId' component={DoctorAppointmentDetails} />
           <Route path='/prescription' component={Prescription} />
         </Switch>
     </Router>
