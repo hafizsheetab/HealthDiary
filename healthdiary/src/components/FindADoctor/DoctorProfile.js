@@ -5,7 +5,7 @@ import { useParams } from 'react-router-dom'
 import { stringToTimeStamp, timesStampToString, timeStampToStringWithDate } from '../Utility/convertTimeStamp'
 import { getToken, getUser } from '../Utility/localStorageAPI'
 import './findADoc.css'
-
+import Navbar from './Navbar'
 function DoctorProfile({history}) {
     let {doctorId} = useParams()
     const [appointment, setAppointment] = useState({
@@ -62,6 +62,7 @@ function DoctorProfile({history}) {
     },[])
     return (
         <>
+        <Navbar />
         <Card className='doc__profile'>
             <Card.Header className='doc__profile_heading'>Personal Information</Card.Header>
             <Card.Body>

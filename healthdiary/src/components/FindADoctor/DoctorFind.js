@@ -1,9 +1,10 @@
 import axios from 'axios'
 import React, { useState } from 'react'
 import { departmentData } from '../Dashboard/Patient_Dashboard/DashboardData'
-import { getToken, getUser } from '../Utility/localStorageAPI'
+import { getToken } from '../Utility/localStorageAPI'
 import DoctorCard from './DoctorCard'
 import './findADoc.css'
+import Navbar from './Navbar'
 
 function DoctorFind({history}) {
   const [findField, setfindField] = useState({
@@ -36,7 +37,9 @@ function DoctorFind({history}) {
     )
   }
   
-    return (
+  return (
+    <>
+      <Navbar />
         <div className="find_container">
             <div className="search_box">
                 <form method="POST" onSubmit = {handleSubmit}>
@@ -51,12 +54,13 @@ function DoctorFind({history}) {
                   <button type="submit" className="button doc_find_btn">Search</button>
                 </form>
             </div>
-
+         <div className="doc-list">
         {doctors.map(i => (
           <DoctorCard doctor={i} history = {history}/>
             ))}
-        
         </div>
+      </div>
+      </>
     )
 }
 

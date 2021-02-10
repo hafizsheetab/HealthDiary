@@ -54,3 +54,11 @@
 .p_input {
   margin-right: 0.3rem;
 }
+.c_text {
+  /* margin-left: 2rem; */
+  text-align: center;
+}
+.edu_data {
+  width: 20rem;
+  margin: auto;
+}
