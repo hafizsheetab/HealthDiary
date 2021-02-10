@@ -3,7 +3,7 @@ import { Button, Card } from 'react-bootstrap'
 import login from '../../resources/imgaes/login.svg'
 import './appointment.css'
 
-function AppointmentDetails() {
+function DoctorAppointmentDetails() {
     return (
         <>
         <div>
@@ -15,7 +15,7 @@ function AppointmentDetails() {
                     <Card.Title className='appdet-title'>Doctor Profile</Card.Title>
                     <Card.Text>Email</Card.Text>
                     <Card.Text> Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit voluptatem assumenda veritatis, animi quam corporis distinctiendi! Dolores, optio saepe.</Card.Text>
-                    <Button className='appdet-btn' variant="primary">View Profile</Button>
+                    <Button className='appdet-btn' variant="primary" disabled>View Profile</Button>
                 </Card.Body>
             </Card> 
           
@@ -58,4 +58,4 @@ function AppointmentDetails() {
     )
 }
 
-export default AppointmentDetails
+export default DoctorAppointmentDetails

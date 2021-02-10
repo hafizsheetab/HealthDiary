@@ -21,13 +21,13 @@
 .form__field::placeholder {
   color: transparent;
 }
-.form__field:placeholder-shown ~ .form__label {
+.form__field:placeholder-shown ~ .form___label {
   font-size: 1rem;
   cursor: text;
   top: 20px;
 }
 
-.form__label {
+.form___label {
   position: absolute;
   top: -0.7rem;
   display: block;
@@ -48,7 +48,7 @@
   );
   border-image-slice: 1;
 }
-.form__field:focus ~ .form__label {
+.form__field:focus ~ .form___label {
   position: absolute;
   top: -0.5rem;
   display: block;

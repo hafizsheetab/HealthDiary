@@ -39,3 +39,18 @@
   font-size: 1.1rem;
   color: var(--color-primary);
 }
+
+/**** Prescription ****/
+.modal-content {
+  width: 130%;
+}
+.modal-container {
+  width: 1250px;
+}
+.p_label {
+  color: var(--color-primary);
+  margin-right: 0.5rem;
+}
+.p_input {
+  margin-right: 0.3rem;
+}

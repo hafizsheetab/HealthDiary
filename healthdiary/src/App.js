@@ -1,7 +1,9 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import AppointmentDetails from './components/Appointment/AppointmentDetails';
+import DoctorAppointmentDetails from './components/Appointment/DoctorAppointmentDetails';
+import PatientAppointmentDetails from './components/Appointment/PatientAppointmentDetails';
+import Prescription from './components/Appointment/Prescription';
 import Chat from './components/Chat/Chat';
 import DoctorDashboard from './components/Dashboard/Doctor_Dashboard/pages/Dashboard';
 import DocAppoitments from './components/Dashboard/Doctor_Dashboard/pages/DocAppoitments';
@@ -52,7 +54,9 @@ function App() {
           <Route path='/doctor/education' component={Education} />
           <Route path='/doctor/work' component={Work} />
           
-          <Route path='/appointment/details' component={AppointmentDetails}/>
+          <Route path='/patient/appointment/details' component={PatientAppointmentDetails} />
+          <Route path='/doctor/appointment/details' component={DoctorAppointmentDetails} />
+          <Route path='/prescription' component={Prescription} />
         </Switch>
     </Router>
     </>

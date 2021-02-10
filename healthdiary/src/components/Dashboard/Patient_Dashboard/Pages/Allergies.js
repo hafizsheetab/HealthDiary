@@ -16,7 +16,7 @@ function Allergies() {
         <form method="POST">
         <div className='home'>
            <div className="form__group field">
-              <label htmlFor="drug" className="form__label">Select Drug name</label>
+              <label htmlFor="drug" className="form___label">Select Drug name</label>
               <select type="text" className="form__field" placeholder="drug" name="drug" id="drug">
                 {drugData.value.map(con =>
                 (<option value={con}>{con}</option>))}
@@ -25,11 +25,11 @@ function Allergies() {
             
             <div className="form__group field">
             <input type="text" className="form__field" placeholder="otherDrug" name="otherDrug" id="otherDrug" />
-            <label for="otherDrug" className="form__label">Any Other Drug</label>
+            <label for="otherDrug" className="form___label">Any Other Drug</label>
             </div>
             
              <div className="form__group field">
-              <label htmlFor="reaction" className="form__label">Reaction</label>
+              <label htmlFor="reaction" className="form___label">Reaction</label>
               <select type="text" className="form__field" placeholder="reaction" name="reaction" id="reaction">
                 {reactionData.value.map(con =>
                 (<option value={con}>{con}</option>))}
@@ -46,12 +46,12 @@ function Allergies() {
            <div className='home'>
               <div className="form__group field">
               <input type="text" className="form__field" placeholder="allergy" name="allergy" id="allergy" />
-              <label for="allergy" className="form__label">Description</label>
+              <label for="allergy" className="form___label">Description</label>
               </div>
  
               <div className="form__group field">
               <input type="text" className="form__field" placeholder="reaction" name="reaction" id="reaction" />
-              <label for="reaction" className="form__label">Reaction</label>
+              <label for="reaction" className="form___label">Reaction</label>
             </div>
             </div>
             <button type ="submit" className='button doc_app_btn allergies_btn' >Save</button>

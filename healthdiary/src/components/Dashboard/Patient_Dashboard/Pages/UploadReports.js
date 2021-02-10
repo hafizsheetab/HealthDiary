@@ -18,7 +18,7 @@ function UploadReports() {
               <div className=''>
                 <div className="form__group field">
                 <input type="file" className="form__field" placeholder="report" name="report" id="report" />
-                <label for="report" className="form__label">Report</label>
+                <label for="report" className="form___label">Report</label>
                 </div>
               </div>
               <button type="submit" className="button doc_app_btn" >Upload</button>

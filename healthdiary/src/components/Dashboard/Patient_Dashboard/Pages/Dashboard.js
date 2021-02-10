@@ -72,46 +72,45 @@ function Dashboard() {
       <form className='home' method="POST" onSubmit = {handleSubmit}>
       <div className="form__group field">
             <input type="text" className="form__field" placeholder="Name" name="name" id="name" value = {profile.name} onChange={(e) => {e.preventDefault()}} />
-              <label for="name" className="form__label">Name</label>
+              <label for="name" className="form___label">Name</label>
           </div>
 
            <div className="form__group field">
             <input type="text" className="form__field" placeholder="Email" name="email" id="email" value = {profile.email} onChange={(e) => {e.preventDefault()}}  />
-              <label for="email" className="form__label">Email</label>
+              <label for="email" className="form___label">Email</label>
           </div>
 
            <div className="form__group field">
             <input type="text" className="form__field" placeholder="contactNo" name="contactNo" id="contactNo" value = {profile.contactNo} onChange = {handleChange}    />
-              <label for="contactNo" className="form__label">contactNo</label>
+              <label for="contactNo" className="form___label">contactNo</label>
           </div>
           <div className="form__group field">
             <input type="text" className="form__field" placeholder="height" name="height" id="height"  value = {profile.height} onChange = {handleChange}   />
-              <label for="height" className="form__label">height</label>
+              <label for="height" className="form___label">height</label>
           </div>
           <div className="form__group field">
             <input type="text" className="form__field" placeholder="weight" name="weight" id="weight"  value = {profile.weight} onChange = {handleChange}   />
-              <label for="weight" className="form__label">weight</label>
+              <label for="weight" className="form___label">weight</label>
           </div>
           <div className="form__group field">
             <input type="text" className="form__field" placeholder="age" name="age" id="age" value = {profile.age} onChange = {handleChange}    />
-              <label for="age" className="form__label">age</label>
+              <label for="age" className="form___label">age</label>
           </div>
           <div className="form__group field">
             <input type="text" className="form__field" placeholder="nid" name="nid" id="nid"  value = {profile.nid} onChange = {handleChange}   />
-              <label for="nid" className="form__label">nid</label>
+              <label for="nid" className="form___label">nid</label>
           </div>
 
           <div className="form__group field">
             <input type="date" className="form__field" placeholder="Date Of Birth" name="dateOfBirth" id="dateOfBirth" value = {profile.dateOfBirth} onChange = {handleChange}   />
-              <label for="dateOfBirth" className="form__label">Date Of Birth</label>
+              <label for="dateOfBirth" className="form___label">Date Of Birth</label>
           </div>
           <div className="form__group field">
-             <label className="form__label" for="cars">Gender</label>
+             <label className="form___label" for="cars">Gender</label>
               <select name="gender" id="gender" className="form__field" value = {profile.gender} onChange = {handleChange} >
                 <option value="Male">Male</option>
                 <option value="Female">Female</option>
-                <option value="Other">Other</option>
-                
+                <option value="Other">Other</option>  
               </select>
             </div>
             <div className="form__group field">

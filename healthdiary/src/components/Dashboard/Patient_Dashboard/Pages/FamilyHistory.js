@@ -17,7 +17,7 @@ function FamilyHistory() {
         <form method="POST">
         <div className='home'>
            <div className="form__group field">
-              <label htmlFor="relation" className="form__label">Family Relation</label>
+              <label htmlFor="relation" className="form___label">Family Relation</label>
               <select type="text" className="form__field" placeholder="Relation" name="relation" id="relation">
                 {familyRelationData.value.map(con =>
                 (<option value={con}>{con}</option>))}
@@ -26,7 +26,7 @@ function FamilyHistory() {
              
             <div className="form__group field">
                 <input type="text" className="form__field" placeholder="diagnosis" name="diagnosis" id="diagnosis" />
-                <label for="diagnosis" className="form__label">Diagnosis</label>
+                <label for="diagnosis" className="form___label">Diagnosis</label>
             </div>
            </div>
             <button type='submit' className="button doc_app_btn history_btn">Save</button>        
@@ -40,7 +40,7 @@ function FamilyHistory() {
              (
                 <div class="form__group field">
                     <input type="text" className="form__field" placeholder={con.place} name={con.value} id={con.value} />
-                    <label for={con.value} className="form__label">{con.place}</label>
+                    <label for={con.value} className="form___label">{con.place}</label>
                 </div>
                 
         ))}

@@ -38,7 +38,7 @@ function DoctorVisit() {
           <form method="POST" onSubmit={handleFormSumbit}>
           <div className='home'>
           <div className="form__group field">
-              <label htmlFor="district" className="form__label">District</label>
+              <label htmlFor="district" className="form___label">District</label>
               <select type="text" className="form__field" placeholder="District" name="district" id="district"
               value={docData.district} onChange={e=>handleOnChange(e)}>
                 {divisionData.value.map(con =>
@@ -48,15 +48,15 @@ function DoctorVisit() {
     
         <div className="form__group field">
             <input type="text" className="form__field" placeholder="City" name="city" id="city" value={docData.city} onChange={e=>handleOnChange(e)}/>
-            <label for="" className="form__label">City</label>
+            <label for="" className="form___label">City</label>
         </div>
         <div className="form__group field">
             <input type="text" className="form__field" placeholder="Locality" name="locality" id="locality" value={docData.locality} onChange={e=>handleOnChange(e)}/>
-            <label for="" className="form__label">Locality</label>
+            <label for="" className="form___label">Locality</label>
           </div>
           
           <div className="form__group field">
-              <label for="department" className="form__label">Specialization</label>
+              <label for="department" className="form___label">Specialization</label>
               <select type="text" className="form__field"     placeholder="Specialization" name="specialization" id="specialization" value={docData.specialization} onChange={e=>handleOnChange(e)}>
                 {departmentData.value.map(con =>
                 (<option value={con}>{con}</option>))}
@@ -64,7 +64,7 @@ function DoctorVisit() {
           </div>
 
            <div className="form__group field">
-              <label for="hospital" className="form__label">Hospital</label>
+              <label for="hospital" className="form___label">Hospital</label>
               <select type="text" className="form__field"    placeholder="Hospital" name="hospital" id="hospital" value={docData.hospital} onChange={e=>handleOnChange(e)}>
                 {hospitalData.value.map(con =>
                 (<option value={con}>{con}</option>))}
