@@ -66,6 +66,7 @@ function DoctorVisit() {
            <div className="form__group field">
               <label for="hospital" className="form___label">Hospital</label>
               <select type="text" className="form__field"    placeholder="Hospital" name="hospital" id="hospital" value={docData.hospital} onChange={e=>handleOnChange(e)}>
+              <option value = "" selected disabled hidden>Choose Here</option>
                 {hospitalData.value.map(con =>
                 (<option value={con}>{con}</option>))}
               </select>

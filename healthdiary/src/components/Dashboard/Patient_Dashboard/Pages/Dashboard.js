@@ -108,6 +108,7 @@ function Dashboard() {
           <div className="form__group field">
              <label className="form___label" for="cars">Gender</label>
               <select name="gender" id="gender" className="form__field" value = {profile.gender} onChange = {handleChange} >
+              <option value = "" selected disabled hidden>Choose Here</option>
                 <option value="Male">Male</option>
                 <option value="Female">Female</option>
                 <option value="Other">Other</option>  

@@ -96,6 +96,7 @@ function DoctorDashboard() {
            <div className="form__group field">
               <label for="department" className="form___label">Specialization</label>
               <select type="text" className="form__field"     placeholder="Specialization" name="specialization" id="specialization" value={profile.specialization} onChange={handleChange}>
+              <option value = "" selected disabled hidden>Choose Here</option>
                 {departmentData.value.map(con =>
                 (<option value={con}>{con}</option>))}
               </select>
