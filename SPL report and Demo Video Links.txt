@@ -1,0 +1,14 @@
+﻿Report:
+https://drive.google.com/file/d/1VNtRf6ybCKjGx7uH9pfbppBmdkCALFlM/view?usp=drivesdk
+
+
+Demonstration Video:
+https://drive.google.com/file/d/1hHcvRMFoPOhbhjDKBNYFfkrSG1EFea-h/view?usp=drivesdk
+
+
+Front End:
+On the 'dashboard' branch of this Repository
+
+
+Back End(rest API):
+https://github.com/hafizsheetab/restApiHealthDiary
